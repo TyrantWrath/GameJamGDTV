@@ -15,7 +15,7 @@ public class ChangeMap : MonoBehaviour
 
     private void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     private void Update()
@@ -32,7 +32,8 @@ public class ChangeMap : MonoBehaviour
                 _mapSwap = MapSwap.ghostWorld;
                 for (int i = 0; i < ghostGameObjects.Length; i++)
                 {
-                    ghostGameObjects[i].GetComponent<SpriteRenderer>().sortingOrder = 0;
+                    _spriteRenderer = ghostGameObjects[i].GetComponent<SpriteRenderer>();
+                    _spriteRenderer.sortingOrder = 0;
                 }
 
             }
