@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public enum MapSwap
 {
@@ -11,7 +12,9 @@ public class ChangeMap : MonoBehaviour
 {
     [SerializeField] MapSwap _mapSwap;
     SpriteRenderer _spriteRenderer;
-    [SerializeField] private GameObject[] ghostGameObjects;
+    [SerializeField] private GameObject[] underWorldMapItems;
+    [SerializeField] private int underWorldLayerNumber = 2;
+    [SerializeField] private int normalWorldLayerNumber = 0;
 
     private void Start()
     {
@@ -30,19 +33,34 @@ public class ChangeMap : MonoBehaviour
             if (_mapSwap != MapSwap.ghostWorld)
             {
                 _mapSwap = MapSwap.ghostWorld;
-                for (int i = 0; i < ghostGameObjects.Length; i++)
+                for (int i = 0; i < underWorldMapItems.Length; i++)
                 {
-                    _spriteRenderer = ghostGameObjects[i].GetComponent<SpriteRenderer>();
-                    _spriteRenderer.sortingOrder = 0;
+                    if (underWorldMapItems[i].GetComponent<SpriteRenderer>())
+                    {
+                        _spriteRenderer = underWorldMapItems[i].GetComponent<SpriteRenderer>();
+                        _spriteRenderer.sortingOrder = normalWorldLayerNumber;
+                    }
+                    else
+                    {
+                        underWorldMapItems[i].GetComponent<TilemapRenderer>().sortingOrder = normalWorldLayerNumber;
+                    }
                 }
 
             }
             else if (_mapSwap == MapSwap.ghostWorld)
             {
                 _mapSwap = MapSwap.realWorld;
-                for (int i = 0; i < ghostGameObjects.Length; i++)
+                for (int i = 0; i < underWorldMapItems.Length; i++)
                 {
-                    ghostGameObjects[i].GetComponent<SpriteRenderer>().sortingOrder = 2;
+                    if (underWorldMapItems[i].GetComponent<SpriteRenderer>())
+                    {
+                        _spriteRenderer = underWorldMapItems[i].GetComponent<SpriteRenderer>();
+                        _spriteRenderer.sortingOrder = underWorldLayerNumber;
+                    }
+                    else
+                    {
+                        underWorldMapItems[i].GetComponent<TilemapRenderer>().sortingOrder = underWorldLayerNumber;
+                    }
                 }
             }
         }
