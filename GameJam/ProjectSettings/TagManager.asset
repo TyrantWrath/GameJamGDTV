@@ -49,3 +49,6 @@ TagManager:
   - name: Static_Obstacles
     uniqueID: 3626962293
     locked: 0
+  - name: Player
+    uniqueID: 365756549
+    locked: 0

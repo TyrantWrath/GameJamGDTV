@@ -8,6 +8,7 @@ public enum MapSwap
     ghostWorld,
     realWorld
 }
+
 public class ChangeMap : MonoBehaviour
 {
     [SerializeField] MapSwap _mapSwap;
@@ -15,11 +16,6 @@ public class ChangeMap : MonoBehaviour
     [SerializeField] private GameObject[] underWorldMapItems;
     [SerializeField] private int underWorldLayerNumber = 2;
     [SerializeField] private int normalWorldLayerNumber = 0;
-
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {
