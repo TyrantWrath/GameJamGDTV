@@ -17,7 +17,7 @@ public class EnemyRangeMovement : MonoBehaviour
 
     void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find(TagManager.PLAYER_TAG).transform;
     }
 
 
@@ -26,13 +26,13 @@ public class EnemyRangeMovement : MonoBehaviour
     {
         CheckForWithinRange();
         CheckForRunAway();
-        
-        if(!isWithinRange)
+
+        if (!isWithinRange)
         {
             Movement();
         }
 
-        if(runAway)
+        if (runAway)
         {
             Movement();
         }
@@ -41,7 +41,7 @@ public class EnemyRangeMovement : MonoBehaviour
 
     private void CheckForWithinRange()
     {
-        if(Vector3.Distance(player.position, transform.position) < rangeAttackDistance)
+        if (Vector3.Distance(player.position, transform.position) < rangeAttackDistance)
         {
             isWithinRange = true;
         }
@@ -53,7 +53,7 @@ public class EnemyRangeMovement : MonoBehaviour
 
     private void CheckForRunAway()
     {
-        if(Vector3.Distance(player.position, transform.position) < runAwayDistance)
+        if (Vector3.Distance(player.position, transform.position) < runAwayDistance)
         {
             runAway = true;
         }
@@ -68,8 +68,8 @@ public class EnemyRangeMovement : MonoBehaviour
         playerDirection = (player.position - transform.position).normalized;
         playerDirection.z = 0;
 
-        if(runAway)
-        {          
+        if (runAway)
+        {
             transform.Translate(-playerDirection * speed * Time.deltaTime);
         }
         else
