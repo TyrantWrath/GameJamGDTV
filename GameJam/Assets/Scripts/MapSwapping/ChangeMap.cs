@@ -13,9 +13,18 @@ public class ChangeMap : MonoBehaviour
 {
     [SerializeField] MapSwap _mapSwap;
     SpriteRenderer _spriteRenderer;
+    PlayerModeManager _playerModeManager;
+
     [SerializeField] private GameObject[] underWorldMapItems;
     [SerializeField] private int underWorldLayerNumber = 2;
     [SerializeField] private int normalWorldLayerNumber = 0;
+
+    private void Start()
+    {
+        _playerModeManager = FindObjectOfType<PlayerModeManager>();
+
+        _playerModeManager.SetPlayerMode(_mapSwap);
+    }
 
     private void Update()
     {
@@ -26,9 +35,9 @@ public class ChangeMap : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (_mapSwap != MapSwap.ghostWorld)
+            if (_mapSwap == MapSwap.ghostWorld)
             {
-                _mapSwap = MapSwap.ghostWorld;
+                _mapSwap = MapSwap.realWorld;
                 for (int i = 0; i < underWorldMapItems.Length; i++)
                 {
                     if (underWorldMapItems[i].GetComponent<SpriteRenderer>())
@@ -43,9 +52,9 @@ public class ChangeMap : MonoBehaviour
                 }
 
             }
-            else if (_mapSwap == MapSwap.ghostWorld)
+            else if (_mapSwap != MapSwap.ghostWorld)
             {
-                _mapSwap = MapSwap.realWorld;
+                _mapSwap = MapSwap.ghostWorld;
                 for (int i = 0; i < underWorldMapItems.Length; i++)
                 {
                     if (underWorldMapItems[i].GetComponent<SpriteRenderer>())
@@ -59,6 +68,8 @@ public class ChangeMap : MonoBehaviour
                     }
                 }
             }
+
+            _playerModeManager.SetPlayerMode(_mapSwap);
         }
     }
 }

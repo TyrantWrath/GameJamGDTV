@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,19 +16,29 @@ public class PlayerHealth : MonoBehaviour
         healthSlider.value = healthAmount;
     }
 
-    private void TakeDamage(float damageAmount)
+    public void TakeDamage(float damageAmount)
     {
         healthAmount -= damageAmount;
     }
 
     private void Update()
-    {
+    {/*
         //For test only, Remove ASAP
         if (Input.GetMouseButtonDown(1))
         {
             healthAmount -= 15;
-        }
+        }*/
 
         healthSlider.value = healthAmount;
+
+        if(healthAmount <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+
     }
 }
