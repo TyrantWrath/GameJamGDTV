@@ -4332,6 +4332,7 @@ MonoBehaviour:
   - {fileID: 617684218}
   underWorldLayerNumber: 2
   normalWorldLayerNumber: 0
+  timeBeforeMapSwap: 1
 --- !u!4 &1025266147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4201545108161899269, guid: 73556a1a921340b4da65281173ab65d3, type: 3}

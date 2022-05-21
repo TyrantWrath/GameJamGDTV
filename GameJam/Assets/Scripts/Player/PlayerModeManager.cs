@@ -9,9 +9,17 @@ public class PlayerModeManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera followCam;
 
     PlayerMovement realPlayerMovement;
+    MeleeAttack realMeleeAttack;
+
+    PlayerMovement ghostPlayerMovement;
+    MeleeAttack ghostMeleeAttack;
     void Start()
     {
         realPlayerMovement = realInstance.GetComponent<PlayerMovement>();
+        realMeleeAttack = realInstance.GetComponentInChildren<MeleeAttack>();
+
+        ghostPlayerMovement = ghostInstance.GetComponent<PlayerMovement>();
+        ghostMeleeAttack = ghostInstance.GetComponentInChildren<MeleeAttack>();
     }
 
     public void SetPlayerMode(MapSwap mapSwap)
@@ -22,6 +30,7 @@ public class PlayerModeManager : MonoBehaviour
         {
             ghostInstance.SetActive(false);
             realPlayerMovement.enabled = true;
+            realMeleeAttack.gameObject.SetActive(true);
 
             followCam.Follow = realInstance.transform;
         }
@@ -30,8 +39,18 @@ public class PlayerModeManager : MonoBehaviour
             ghostInstance.SetActive(true);
             realPlayerMovement.enabled = false;
             realPlayerMovement.rb.velocity = Vector2.zero;
+            realMeleeAttack.gameObject.SetActive(false);
 
             followCam.Follow = ghostInstance.transform;
         }
+    }
+
+    public void EnablePlayers(bool status)
+    {
+        realPlayerMovement.enabled = status;
+        realMeleeAttack.enabled = status;
+
+        ghostPlayerMovement.enabled = status;
+        ghostMeleeAttack.enabled = status;
     }
 }

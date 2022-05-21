@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour
+public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealthAmount;
     [SerializeField] private float healthAmount;
@@ -12,26 +12,22 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        healthAmount = maxHealthAmount;
-        healthSlider.value = healthAmount;
+        if(transform.CompareTag(TagManager.PLAYER_TAG))
+        {
+            healthAmount = maxHealthAmount;
+            healthSlider.value = healthAmount;
+        }
     }
 
     public void TakeDamage(float damageAmount)
     {
         healthAmount -= damageAmount;
-    }
 
-    private void Update()
-    {/*
-        //For test only, Remove ASAP
-        if (Input.GetMouseButtonDown(1))
+        if(transform.CompareTag(TagManager.PLAYER_TAG))
         {
-            healthAmount -= 15;
-        }*/
-
-        healthSlider.value = healthAmount;
-
-        if(healthAmount <= 0)
+            healthSlider.value = healthAmount;
+        }
+        if (healthAmount <= 0)
         {
             Die();
         }

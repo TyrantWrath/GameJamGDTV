@@ -40,7 +40,9 @@ public class ChangeMap : MonoBehaviour
     }
     private IEnumerator DelayBeforeMapSwap()
     {
+        _playerModeManager.EnablePlayers(false);
         yield return new WaitForSeconds(timeBeforeMapSwap);
+        _playerModeManager.EnablePlayers(true);
         ChangeWorld();
     }
 
