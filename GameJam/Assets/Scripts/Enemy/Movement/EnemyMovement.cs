@@ -46,16 +46,10 @@ public class EnemyMovement : MonoBehaviour
 
         if(runAway)
         {          
-            angleDirection = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angleDirection, Vector3.forward);
-
             transform.Translate(-playerDirection * speed * Time.deltaTime);
         }
         else
         {
-            angleDirection = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angleDirection, Vector3.forward);
-
             transform.Translate(playerDirection * speed * Time.deltaTime);
         }
     }
