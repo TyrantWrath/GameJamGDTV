@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private GameObject player = null;
-    private Rigidbody2D rig = null;
+    public Rigidbody2D rig = null;
     private Vector2 deltaForce;
 
     [SerializeField] private float speed = 5f;
