@@ -493,7 +493,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 99e82464d1af6c2439d19a180aaee7e4, type: 2}
+  - {fileID: 2100000, guid: 9a01e5e6aadf5a5498c19faa391e1c60, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5216,6 +5216,7 @@ GameObject:
   - component: {fileID: 904864671}
   - component: {fileID: 904864670}
   - component: {fileID: 904864669}
+  - component: {fileID: 904864672}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -5238,9 +5239,9 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
-  m_Color: {r: 0.9339623, g: 0.40970984, b: 0.40970984, a: 1}
-  m_Intensity: 1
+  m_FalloffIntensity: 0.655
+  m_Color: {r: 1, g: 0.8286115, b: 0, a: 1}
+  m_Intensity: 0.01
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000004f29752d750d2fd88500cd15ada52bf4
@@ -5368,6 +5369,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &904864672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904864668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa2c2a81913552409fa80717721b5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorDuration: 1
+  _color1: {r: 238, g: 104, b: 104, a: 1}
+  _color2: {r: 255, g: 211, b: 0, a: 1}
 --- !u!1 &910354737
 GameObject:
   m_ObjectHideFlags: 0
@@ -9674,6 +9690,8 @@ MonoBehaviour:
   - {fileID: 617684218}
   underWorldLayerNumber: 2
   normalWorldLayerNumber: 0
+  timeBeforeMapSwap: 0.99
+  maxTime: 0.85
 --- !u!1 &1035204328 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1533915573653021806, guid: 3492a9efc8c68214d9bf4396f6495e3a, type: 3}
@@ -10071,5 +10089,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4201545107227881423, guid: 73556a1a921340b4da65281173ab65d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 904a2ae2f2750284ba8627390c7c31f4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73556a1a921340b4da65281173ab65d3, type: 3}

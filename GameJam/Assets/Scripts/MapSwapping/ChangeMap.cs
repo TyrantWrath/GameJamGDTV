@@ -21,10 +21,13 @@ public class ChangeMap : MonoBehaviour
 
     [Range(0, 5)]
     [SerializeField] private float timeBeforeMapSwap;
+    [SerializeField] private float maxTime;
+    private float timer;
 
 
     private void Start()
     {
+        timer = maxTime;
         _playerModeManager = FindObjectOfType<PlayerModeManager>();
 
         _playerModeManager.SetPlayerMode(_mapSwap);
@@ -33,15 +36,25 @@ public class ChangeMap : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            StartCoroutine(DelayBeforeMapSwap());
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                DelayBeforeMapSwap();
+                timer = maxTime;
+            }
         }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            timer = maxTime;
+
+        }
+
     }
-    private IEnumerator DelayBeforeMapSwap()
+    private void DelayBeforeMapSwap()
     {
         _playerModeManager.EnablePlayers(false);
-        yield return new WaitForSeconds(timeBeforeMapSwap);
         _playerModeManager.EnablePlayers(true);
         ChangeWorld();
     }
