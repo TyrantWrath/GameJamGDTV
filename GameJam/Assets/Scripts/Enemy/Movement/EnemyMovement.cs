@@ -6,10 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
 
     private Transform player = null;
-    //private Transform randomSpot = null;
-    private Rigidbody2D rig = null;
     private Vector3 playerDirection;
-    private Vector3 randomSpotDirection;
 
     private bool runAway = false;
 
@@ -22,8 +19,6 @@ public class EnemyMovement : MonoBehaviour
     void Awake()
     {
         player = GameObject.Find("Player").transform;
-        //randomSpot = gameObject.transform.Find("RandomSpot");
-        rig = GetComponent<Rigidbody2D>();
     }
 
 
@@ -35,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        IsTakeStepBackTimer();
+        RunAwayTimer();
     }
 
 
@@ -54,7 +49,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void IsTakeStepBackTimer()
+    private void RunAwayTimer()
     {
         if(runAway)
         {
