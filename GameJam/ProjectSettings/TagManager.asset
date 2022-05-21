@@ -6,6 +6,7 @@ TagManager:
   tags:
   - static_Obstacles
   - Blocking
+  - Monster
   layers:
   - Default
   - TransparentFX
