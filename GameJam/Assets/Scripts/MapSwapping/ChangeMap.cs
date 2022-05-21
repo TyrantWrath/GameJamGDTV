@@ -19,6 +19,10 @@ public class ChangeMap : MonoBehaviour
     [SerializeField] private int underWorldLayerNumber = 2;
     [SerializeField] private int normalWorldLayerNumber = 0;
 
+    [Range(0, 5)]
+    [SerializeField] private float timeBeforeMapSwap;
+
+
     private void Start()
     {
         _playerModeManager = FindObjectOfType<PlayerModeManager>();
@@ -29,19 +33,25 @@ public class ChangeMap : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            ChangeWorld();
+            StartCoroutine(DelayBeforeMapSwap());
         }
     }
+    private IEnumerator DelayBeforeMapSwap()
+    {
+        yield return new WaitForSeconds(timeBeforeMapSwap);
+        ChangeWorld();
+    }
+
 
     private void ChangeWorld()
     {
-        if(_mapSwap == MapSwap.ghostWorld)
+        if (_mapSwap == MapSwap.ghostWorld)
         {
             _mapSwap = MapSwap.realWorld;
         }
-        else if(_mapSwap == MapSwap.realWorld)
+        else if (_mapSwap == MapSwap.realWorld)
         {
             _mapSwap = MapSwap.ghostWorld;
         }
