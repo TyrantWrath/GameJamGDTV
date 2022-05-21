@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private GameObject player = null;
-    public Rigidbody2D rig = null;
+    public Rigidbody2D rb = null;
     private Vector2 deltaForce;
 
     [SerializeField] private float speed = 5f;
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         player = GameObject.Find("Player");
-        rig = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
 
@@ -30,13 +30,14 @@ public class PlayerMovement : MonoBehaviour
         var verticalMovement = Input.GetAxisRaw("Vertical");
 
         deltaForce = new Vector2(horizontalMovement, verticalMovement);
-        CalculateMovement(deltaForce * speed);
+        rb.velocity = deltaForce * speed;
+        //CalculateMovement(deltaForce * speed);
     }
 
     private void CalculateMovement(Vector2 force)
     {
-        rig.velocity = Vector2.zero;
-        rig.AddForce(force, ForceMode2D.Impulse);
+        rb.velocity = Vector2.zero;
+        rb.AddForce(force, ForceMode2D.Impulse);
     }
 
 

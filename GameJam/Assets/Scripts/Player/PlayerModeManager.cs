@@ -29,7 +29,7 @@ public class PlayerModeManager : MonoBehaviour
         {
             ghostInstance.SetActive(true);
             realPlayerMovement.enabled = false;
-            realPlayerMovement.rig.velocity = Vector2.zero;
+            realPlayerMovement.rb.velocity = Vector2.zero;
 
             followCam.Follow = ghostInstance.transform;
         }

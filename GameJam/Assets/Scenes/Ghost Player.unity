@@ -4326,7 +4326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8032d73abb87b641b87ffab05325903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapSwap: 0
+  _mapSwap: 1
   underWorldMapItems:
   - {fileID: 464414456}
   - {fileID: 617684218}
@@ -4361,15 +4361,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1533915573653021804, guid: 3492a9efc8c68214d9bf4396f6495e3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.8329115
+      value: -7.0429115
       objectReference: {fileID: 0}
     - target: {fileID: 1533915573653021804, guid: 3492a9efc8c68214d9bf4396f6495e3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8339133
+      value: -0.8839133
       objectReference: {fileID: 0}
     - target: {fileID: 1533915573653021804, guid: 3492a9efc8c68214d9bf4396f6495e3a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.999798
+      value: -10.047721
       objectReference: {fileID: 0}
     - target: {fileID: 1533915573653021804, guid: 3492a9efc8c68214d9bf4396f6495e3a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4411,7 +4411,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: FollowCam
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1533915574157387245, guid: 3492a9efc8c68214d9bf4396f6495e3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3492a9efc8c68214d9bf4396f6495e3a, type: 3}
 --- !u!1 &1698357461
 GameObject:

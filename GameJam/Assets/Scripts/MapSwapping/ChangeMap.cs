@@ -24,52 +24,65 @@ public class ChangeMap : MonoBehaviour
         _playerModeManager = FindObjectOfType<PlayerModeManager>();
 
         _playerModeManager.SetPlayerMode(_mapSwap);
+        SetWorld();
     }
 
     private void Update()
     {
-        ChangeWorld();
+        if(Input.GetMouseButtonDown(0))
+        {
+            ChangeWorld();
+        }
     }
 
     private void ChangeWorld()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(_mapSwap == MapSwap.ghostWorld)
         {
-            if (_mapSwap == MapSwap.ghostWorld)
-            {
-                _mapSwap = MapSwap.realWorld;
-                for (int i = 0; i < underWorldMapItems.Length; i++)
-                {
-                    if (underWorldMapItems[i].GetComponent<SpriteRenderer>())
-                    {
-                        _spriteRenderer = underWorldMapItems[i].GetComponent<SpriteRenderer>();
-                        _spriteRenderer.sortingOrder = normalWorldLayerNumber;
-                    }
-                    else
-                    {
-                        underWorldMapItems[i].GetComponent<TilemapRenderer>().sortingOrder = normalWorldLayerNumber;
-                    }
-                }
-
-            }
-            else if (_mapSwap != MapSwap.ghostWorld)
-            {
-                _mapSwap = MapSwap.ghostWorld;
-                for (int i = 0; i < underWorldMapItems.Length; i++)
-                {
-                    if (underWorldMapItems[i].GetComponent<SpriteRenderer>())
-                    {
-                        _spriteRenderer = underWorldMapItems[i].GetComponent<SpriteRenderer>();
-                        _spriteRenderer.sortingOrder = underWorldLayerNumber;
-                    }
-                    else
-                    {
-                        underWorldMapItems[i].GetComponent<TilemapRenderer>().sortingOrder = underWorldLayerNumber;
-                    }
-                }
-            }
-
-            _playerModeManager.SetPlayerMode(_mapSwap);
+            _mapSwap = MapSwap.realWorld;
         }
+        else if(_mapSwap == MapSwap.realWorld)
+        {
+            _mapSwap = MapSwap.ghostWorld;
+        }
+
+        SetWorld();
+    }
+
+    private void SetWorld()
+    {
+        if (_mapSwap == MapSwap.realWorld)
+        {
+            for (int i = 0; i < underWorldMapItems.Length; i++)
+            {
+                if (underWorldMapItems[i].GetComponent<SpriteRenderer>())
+                {
+                    _spriteRenderer = underWorldMapItems[i].GetComponent<SpriteRenderer>();
+                    _spriteRenderer.sortingOrder = normalWorldLayerNumber;
+                }
+                else
+                {
+                    underWorldMapItems[i].GetComponent<TilemapRenderer>().sortingOrder = normalWorldLayerNumber;
+                }
+            }
+
+        }
+        else if (_mapSwap == MapSwap.ghostWorld)
+        {
+            _mapSwap = MapSwap.ghostWorld;
+            for (int i = 0; i < underWorldMapItems.Length; i++)
+            {
+                if (underWorldMapItems[i].GetComponent<SpriteRenderer>())
+                {
+                    _spriteRenderer = underWorldMapItems[i].GetComponent<SpriteRenderer>();
+                    _spriteRenderer.sortingOrder = underWorldLayerNumber;
+                }
+                else
+                {
+                    underWorldMapItems[i].GetComponent<TilemapRenderer>().sortingOrder = underWorldLayerNumber;
+                }
+            }
+        }
+        _playerModeManager.SetPlayerMode(_mapSwap);
     }
 }
