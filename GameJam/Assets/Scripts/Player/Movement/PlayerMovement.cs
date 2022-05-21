@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 deltaForce;
 
     [SerializeField] private float speed = 5f;
-    
+
     void Awake()
     {
         player = GameObject.Find("Player");
