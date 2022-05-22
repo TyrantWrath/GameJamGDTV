@@ -5,12 +5,6 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-    //private float timeBtwAttack;
-    //[SerializeField] float startTimeBtwAttack;
-    //
-    //[SerializeField] float attackRange;
-    //[SerializeField] Transform attackPos;
-
     [SerializeField] bool isPlayerReal;
     [SerializeField] int damage;
     [SerializeField] float knockback;
@@ -40,41 +34,11 @@ public class MeleeAttack : MonoBehaviour
         {
             _animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
         }
-
-        /*
-        if (timeBtwAttack <= 0)
-        {
-            // then you attack
-            if (Input.GetMouseButton(0))
-            {
-                _animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
-
-                Collider2D[] enemeiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
-                
-                foreach(Collider2D enemy in enemeiesToDamage)
-                {
-                    enemy.GetComponent<Health>().TakeDamage(damage);
-                    if (!enemy.GetComponent<Health>().isAlive) return;
-                    StartCoroutine(KnockBack(enemy));
-                    StartCoroutine(DamageEffects(enemy));
-                }
-
-                timeBtwAttack = startTimeBtwAttack;
-            }
-
-        }
-        else
-        {
-            timeBtwAttack -= Time.deltaTime;
-        }
-        */
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        print("Collided");
         if(other.gameObject.CompareTag(enemyTag))
         {
-            print("Attacking");
             other.GetComponent<Health>().TakeDamage(damage);
             if (!other.GetComponent<Health>().isAlive) return;
             StartCoroutine(KnockBack(other));
@@ -110,14 +74,6 @@ public class MeleeAttack : MonoBehaviour
         if (enemyRangeMovement != null) enemyRangeMovement.enabled = true;
         if (enemyMovement != null) enemyMovement.enabled = true;
     }
-
-    /*
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPos.position, attackRange);
-    }
-    */
     private void SetRotation()
     {
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;

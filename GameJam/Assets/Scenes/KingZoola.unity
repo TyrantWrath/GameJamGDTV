@@ -10541,11 +10541,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9103315561946144359, guid: 73556a1a921340b4da65281173ab65d3, type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 9103315561946144359, guid: 73556a1a921340b4da65281173ab65d3, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 9103315561946144359, guid: 73556a1a921340b4da65281173ab65d3, type: 3}
       propertyPath: m_Enabled
