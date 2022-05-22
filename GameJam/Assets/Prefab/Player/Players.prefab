@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1049743102}
   - component: {fileID: 1049743103}
+  - component: {fileID: 9103315561946144359}
   m_Layer: 3
   m_Name: Sword
   m_TagString: Untagged
@@ -53,6 +54,32 @@ MonoBehaviour:
   attackRange: 0.4
   damage: 15
   knockback: 3
+--- !u!61 &9103315561946144359
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049743101}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1198526159
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +384,7 @@ MonoBehaviour:
   - {x: 0.2847576, y: 0.035806894, z: 0}
   m_ShapePathHash: -1183002073
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1368
+  m_InstanceId: -1416
 --- !u!95 &1396997210
 Animator:
   serializedVersion: 4
@@ -617,7 +644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4201545108161899269
 Transform:
   m_ObjectHideFlags: 0

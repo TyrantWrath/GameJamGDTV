@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-    private float timeBtwAttack;
-    [SerializeField] float startTimeBtwAttack;
+    //private float timeBtwAttack;
+    //[SerializeField] float startTimeBtwAttack;
+    //
+    //[SerializeField] float attackRange;
+    //[SerializeField] Transform attackPos;
 
-    [SerializeField] Transform attackPos;
-    [SerializeField] LayerMask whatIsEnemies;
-    [SerializeField] float attackRange;
+    [SerializeField] LayerMask enemyLayer;
     [SerializeField] int damage;
     [SerializeField] float knockback;
     Animator _animator;
@@ -18,17 +19,25 @@ public class MeleeAttack : MonoBehaviour
     private void Start()
     {
         _animator = transform.parent.GetComponent<Animator>();
+        print(enemyLayer.value);
     }
 
     void Update()
     {
         SetRotation();
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            _animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
+        }
+
+        /*
         if (timeBtwAttack <= 0)
         {
             // then you attack
             if (Input.GetMouseButton(0))
             {
-                //_animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
+                _animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
 
                 Collider2D[] enemeiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 
@@ -48,7 +57,19 @@ public class MeleeAttack : MonoBehaviour
         {
             timeBtwAttack -= Time.deltaTime;
         }
-
+        */
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        print(collision.gameObject.layer);
+        if(collision.gameObject.layer == enemyLayer.value)
+        {
+            print("damaging");
+            collision.GetComponent<Health>().TakeDamage(damage);
+            if (!collision.GetComponent<Health>().isAlive) return;
+            StartCoroutine(KnockBack(collision));
+            StartCoroutine(DamageEffects(collision));
+        }
     }
 
     IEnumerator DamageEffects(Collider2D enemy)
@@ -80,11 +101,13 @@ public class MeleeAttack : MonoBehaviour
         if (enemyMovement != null) enemyMovement.enabled = true;
     }
 
+    /*
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
+    */
     private void SetRotation()
     {
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
