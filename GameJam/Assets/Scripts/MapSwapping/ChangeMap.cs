@@ -11,7 +11,7 @@ public enum MapSwap
 
 public class ChangeMap : MonoBehaviour
 {
-    MapSwap _mapSwap;
+    [SerializeField] MapSwap _mapSwap;
     SpriteRenderer _spriteRenderer;
     PlayerModeManager _playerModeManager;
 

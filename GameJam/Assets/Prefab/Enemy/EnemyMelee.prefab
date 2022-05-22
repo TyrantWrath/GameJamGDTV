@@ -215,7 +215,7 @@ MonoBehaviour:
   - {x: 0.020128727, y: 0.1405803, z: 0}
   m_ShapePathHash: -760017897
   m_Mesh: {fileID: 0}
-  m_InstanceId: 39900
+  m_InstanceId: -36018
 --- !u!114 &1808124786
 MonoBehaviour:
   m_ObjectHideFlags: 0
