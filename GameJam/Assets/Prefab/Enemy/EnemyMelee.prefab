@@ -72,10 +72,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -198466131
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c09f4d2e19b8f7b4e9b0b9063ead3dc5, type: 3}
+  m_Sprite: {fileID: 2006753337, guid: 86381cab45e609845a1e3432ad715300, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 2529466533436243053}
   - component: {fileID: 2529466533436243055}
   - component: {fileID: 2529466533436243051}
+  - component: {fileID: 1370185267}
   m_Layer: 0
   m_Name: EnemyMelee
   m_TagString: Untagged
@@ -203,7 +204,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ba60d55baeba44685cc22de2ccf0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2.5
+--- !u!114 &1370185267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2529466533436243048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 000000004f29752d750d2fd88500cd15
+  m_ShapePath:
+  - {x: -0.2950368, y: 0.062204123, z: 0}
+  - {x: 0.49244547, y: 0.030540705, z: 0}
+  - {x: 0.020128727, y: 0.1405803, z: 0}
+  m_ShapePathHash: -760017897
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -34526
 --- !u!1 &2529466533582240444
 GameObject:
   m_ObjectHideFlags: 0
