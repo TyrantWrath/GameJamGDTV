@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 4201545107227881423}
   - component: {fileID: 4201545107227881422}
   - component: {fileID: 4201545107227881421}
+  - component: {fileID: 1341342400}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -220,7 +221,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &4201545107227881423
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -262,7 +263,7 @@ SpriteRenderer:
   m_SortingLayerID: 365756549
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c09f4d2e19b8f7b4e9b0b9063ead3dc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 904a2ae2f2750284ba8627390c7c31f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -304,7 +305,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -313,6 +314,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &1341342400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4201545107227881408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 000000004f29752d750d2fd88500cd15ada52bf4
+  m_ShapePath:
+  - {x: -0.30797434, y: 0.0102187395, z: 0}
+  - {x: 0.0015673637, y: -0.17568874, z: 0}
+  - {x: 0.2847576, y: 0.035806894, z: 0}
+  m_ShapePathHash: -1183002073
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -40360
 --- !u!1 &4201545107839206893
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +617,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &4201545108161899265
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -632,7 +659,7 @@ SpriteRenderer:
   m_SortingLayerID: 365756549
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: c09f4d2e19b8f7b4e9b0b9063ead3dc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 904a2ae2f2750284ba8627390c7c31f4, type: 3}
   m_Color: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -674,7 +701,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
