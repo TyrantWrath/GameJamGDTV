@@ -5,21 +5,25 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-    //private float timeBtwAttack;
-    //[SerializeField] float startTimeBtwAttack;
-    //
-    //[SerializeField] float attackRange;
-    //[SerializeField] Transform attackPos;
-
-    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] bool isPlayerReal;
     [SerializeField] int damage;
     [SerializeField] float knockback;
+
     Animator _animator;
+    string enemyTag;
 
     private void Start()
     {
         _animator = transform.parent.GetComponent<Animator>();
-        print(enemyLayer.value);
+
+        if(isPlayerReal == true)
+        {
+            enemyTag = TagManager.REAL_ENEMY_TAG;
+        }
+        else
+        {
+            enemyTag = TagManager.GHOST_ENEMY_TAG;
+        }
     }
 
     void Update()
@@ -30,45 +34,15 @@ public class MeleeAttack : MonoBehaviour
         {
             _animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
         }
-
-        /*
-        if (timeBtwAttack <= 0)
-        {
-            // then you attack
-            if (Input.GetMouseButton(0))
-            {
-                _animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
-
-                Collider2D[] enemeiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
-                
-                foreach(Collider2D enemy in enemeiesToDamage)
-                {
-                    enemy.GetComponent<Health>().TakeDamage(damage);
-                    if (!enemy.GetComponent<Health>().isAlive) return;
-                    StartCoroutine(KnockBack(enemy));
-                    StartCoroutine(DamageEffects(enemy));
-                }
-
-                timeBtwAttack = startTimeBtwAttack;
-            }
-
-        }
-        else
-        {
-            timeBtwAttack -= Time.deltaTime;
-        }
-        */
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        print(collision.gameObject.layer);
-        if(collision.gameObject.layer == enemyLayer.value)
+        if(other.gameObject.CompareTag(enemyTag))
         {
-            print("damaging");
-            collision.GetComponent<Health>().TakeDamage(damage);
-            if (!collision.GetComponent<Health>().isAlive) return;
-            StartCoroutine(KnockBack(collision));
-            StartCoroutine(DamageEffects(collision));
+            other.GetComponent<Health>().TakeDamage(damage);
+            if (!other.GetComponent<Health>().isAlive) return;
+            StartCoroutine(KnockBack(other));
+            StartCoroutine(DamageEffects(other));
         }
     }
 
@@ -100,14 +74,6 @@ public class MeleeAttack : MonoBehaviour
         if (enemyRangeMovement != null) enemyRangeMovement.enabled = true;
         if (enemyMovement != null) enemyMovement.enabled = true;
     }
-
-    /*
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPos.position, attackRange);
-    }
-    */
     private void SetRotation()
     {
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;

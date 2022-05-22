@@ -46,12 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1234bc9739603a54fa7a455d5c42abf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBtwAttack: 0.5
-  attackPos: {fileID: 1198526160}
-  whatIsEnemies:
-    serializedVersion: 2
-    m_Bits: 64
-  attackRange: 0.4
+  isPlayerReal: 1
   damage: 15
   knockback: 3
 --- !u!61 &9103315561946144359
@@ -64,7 +59,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -820,11 +815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1234bc9739603a54fa7a455d5c42abf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBtwAttack: 0.5
-  attackPos: {fileID: 2012693966634668443}
-  whatIsEnemies:
-    serializedVersion: 2
-    m_Bits: 256
-  attackRange: 0.4
+  isPlayerReal: 0
   damage: 15
   knockback: 3
