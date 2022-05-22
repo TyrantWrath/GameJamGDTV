@@ -30,7 +30,14 @@ public class PlayerMovement : MonoBehaviour
         float rotation_z = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotation_z - 90);
 
-
+        if(movement.x != 0 && movement.y != 0)
+        {
+            speed = 3.5f;
+        }
+        else
+        {
+            speed = 5f;
+        }
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
 }
