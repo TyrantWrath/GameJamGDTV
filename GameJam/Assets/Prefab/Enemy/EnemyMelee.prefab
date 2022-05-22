@@ -215,7 +215,7 @@ MonoBehaviour:
   - {x: 0.020128727, y: 0.1405803, z: 0}
   m_ShapePathHash: -760017897
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43940
+  m_InstanceId: 39900
 --- !u!114 &1808124786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthAmount: 50
+  isAlive: 1
   healthSlider: {fileID: 0}
 --- !u!61 &610455021972031644
 BoxCollider2D:
@@ -304,7 +305,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.75
 --- !u!114 &2529466533582240446
 MonoBehaviour:
   m_ObjectHideFlags: 0

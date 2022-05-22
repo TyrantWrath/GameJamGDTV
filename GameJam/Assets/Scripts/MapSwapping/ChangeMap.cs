@@ -11,7 +11,7 @@ public enum MapSwap
 
 public class ChangeMap : MonoBehaviour
 {
-    [SerializeField] MapSwap _mapSwap;
+    MapSwap _mapSwap;
     SpriteRenderer _spriteRenderer;
     PlayerModeManager _playerModeManager;
 
@@ -36,7 +36,11 @@ public class ChangeMap : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
+        {
+            _playerModeManager.EnablePlayers(false, _mapSwap);
+        }
+        else if (Input.GetMouseButton(0))
         {
             timer -= Time.deltaTime;
             if (timer <= 0)
@@ -47,14 +51,13 @@ public class ChangeMap : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            _playerModeManager.EnablePlayers(true, _mapSwap);
             timer = maxTime;
         }
 
     }
     private void DelayBeforeMapSwap()
     {
-        _playerModeManager.EnablePlayers(false);
-        _playerModeManager.EnablePlayers(true);
         ChangeWorld();
     }
 

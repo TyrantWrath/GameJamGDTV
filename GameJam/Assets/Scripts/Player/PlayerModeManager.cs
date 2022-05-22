@@ -45,12 +45,19 @@ public class PlayerModeManager : MonoBehaviour
         }
     }
 
-    public void EnablePlayers(bool status)
+    public void EnablePlayers(bool status, MapSwap mapSwap)
     {
-        realPlayerMovement.enabled = status;
-        realMeleeAttack.enabled = status;
-
-        ghostPlayerMovement.enabled = status;
-        ghostMeleeAttack.enabled = status;
+        if(mapSwap == MapSwap.realWorld)
+        {
+            realInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            realPlayerMovement.enabled = status;
+            realMeleeAttack.enabled = status;
+        }
+        else if(mapSwap == MapSwap.ghostWorld)
+        {
+            ghostInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            ghostPlayerMovement.enabled = status;
+            ghostMeleeAttack.enabled = status;
+        }
     }
 }
