@@ -11,15 +11,25 @@ public class MeleeAttack : MonoBehaviour
     //[SerializeField] float attackRange;
     //[SerializeField] Transform attackPos;
 
-    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] bool isPlayerReal;
     [SerializeField] int damage;
     [SerializeField] float knockback;
+
     Animator _animator;
+    string enemyTag;
 
     private void Start()
     {
         _animator = transform.parent.GetComponent<Animator>();
-        print(enemyLayer.value);
+
+        if(isPlayerReal == true)
+        {
+            enemyTag = TagManager.REAL_ENEMY_TAG;
+        }
+        else
+        {
+            enemyTag = TagManager.GHOST_ENEMY_TAG;
+        }
     }
 
     void Update()
@@ -59,16 +69,16 @@ public class MeleeAttack : MonoBehaviour
         }
         */
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        print(collision.gameObject.layer);
-        if(collision.gameObject.layer == enemyLayer.value)
+        print("Collided");
+        if(other.gameObject.CompareTag(enemyTag))
         {
-            print("damaging");
-            collision.GetComponent<Health>().TakeDamage(damage);
-            if (!collision.GetComponent<Health>().isAlive) return;
-            StartCoroutine(KnockBack(collision));
-            StartCoroutine(DamageEffects(collision));
+            print("Attacking");
+            other.GetComponent<Health>().TakeDamage(damage);
+            if (!other.GetComponent<Health>().isAlive) return;
+            StartCoroutine(KnockBack(other));
+            StartCoroutine(DamageEffects(other));
         }
     }
 

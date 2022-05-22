@@ -8,6 +8,8 @@ TagManager:
   - Blocking
   - Monster
   - Ghost Player
+  - Real Enemy
+  - Ghost Enemy
   layers:
   - Default
   - TransparentFX

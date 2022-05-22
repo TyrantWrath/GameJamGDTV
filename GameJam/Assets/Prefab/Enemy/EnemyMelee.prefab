@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 610455021972031644}
   m_Layer: 6
   m_Name: EnemyMelee
-  m_TagString: Untagged
+  m_TagString: Real Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +175,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &2529466533436243051
 MonoBehaviour:
@@ -215,7 +215,7 @@ MonoBehaviour:
   - {x: 0.020128727, y: 0.1405803, z: 0}
   m_ShapePathHash: -760017897
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1274
+  m_InstanceId: -1322
 --- !u!114 &1808124786
 MonoBehaviour:
   m_ObjectHideFlags: 0
