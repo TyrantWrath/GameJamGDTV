@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
-{ 
+{
     private float timeBtwAttack;
     [SerializeField] float startTimeBtwAttack;
 
@@ -11,6 +11,12 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField] LayerMask whatIsEnemies;
     [SerializeField] float attackRange;
     [SerializeField] int damage;
+    Animator _animator;
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -20,6 +26,8 @@ public class MeleeAttack : MonoBehaviour
             // then you attack
             if (Input.GetMouseButtonDown(1))
             {
+                _animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
+
                 print("Attacking");
                 Collider2D[] enemeiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemeiesToDamage.Length; i++)

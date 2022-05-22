@@ -6,5 +6,5 @@ public class TagManager
 {
     public static string PLAYER_TAG = "Player";
     public static string STATIC_OBSTACLES = "static_Obstacles";
-
+    public static string ATTACK_ANIMATION_PARAMETER = "Attack";
 }
