@@ -27,7 +27,7 @@ public class EnemySpriteRotation : MonoBehaviour
         playerDirection.z = 0;
 
         angleDirection = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angleDirection, Vector3.forward);
+        transform.rotation = Quaternion.AngleAxis(angleDirection + 90, Vector3.forward);
 
     }
 
