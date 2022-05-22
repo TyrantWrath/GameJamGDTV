@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +12,12 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField] LayerMask whatIsEnemies;
     [SerializeField] float attackRange;
     [SerializeField] int damage;
+    [SerializeField] float knockback;
     Animator _animator;
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+        _animator = transform.parent.GetComponent<Animator>();
     }
 
     void Update()
@@ -24,16 +26,20 @@ public class MeleeAttack : MonoBehaviour
         if (timeBtwAttack <= 0)
         {
             // then you attack
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButton(1))
             {
-                _animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
+                //_animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
 
-                print("Attacking");
                 Collider2D[] enemeiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
-                for (int i = 0; i < enemeiesToDamage.Length; i++)
+                
+                foreach(Collider2D enemy in enemeiesToDamage)
                 {
-                    enemeiesToDamage[i].GetComponent<Health>().TakeDamage(damage);
+                    enemy.GetComponent<Health>().TakeDamage(damage);
+                    if (!enemy.GetComponent<Health>().isAlive) return;
+                    StartCoroutine(KnockBack(enemy));
+                    StartCoroutine(DamageEffects(enemy));
                 }
+
                 timeBtwAttack = startTimeBtwAttack;
             }
 
@@ -44,6 +50,36 @@ public class MeleeAttack : MonoBehaviour
         }
 
     }
+
+    IEnumerator DamageEffects(Collider2D enemy)
+    {
+        SpriteRenderer enemySpriteRenderer = enemy.GetComponent<SpriteRenderer>();
+        if(enemySpriteRenderer == null) enemySpriteRenderer = enemy.GetComponentInChildren<SpriteRenderer>();
+
+        Color orignalColor = enemySpriteRenderer.color;
+        enemySpriteRenderer.color = Color.red;
+
+        yield return new WaitForSeconds(0.15f);
+
+        enemySpriteRenderer.color = orignalColor;
+    }
+
+    IEnumerator KnockBack(Collider2D enemy)
+    {
+        EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
+        EnemyRangeMovement enemyRangeMovement = enemy.GetComponent<EnemyRangeMovement>();
+
+        if(enemyRangeMovement != null) enemyRangeMovement.enabled = false;
+        if(enemyMovement != null) enemyMovement.enabled = false;
+
+        enemy.GetComponent<Rigidbody2D>().velocity = transform.right * knockback;
+
+        yield return new WaitForSeconds(0.4f);
+
+        if (enemyRangeMovement != null) enemyRangeMovement.enabled = true;
+        if (enemyMovement != null) enemyMovement.enabled = true;
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

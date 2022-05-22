@@ -48,7 +48,6 @@ public class ChangeMap : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
             timer = maxTime;
-
         }
 
     }
