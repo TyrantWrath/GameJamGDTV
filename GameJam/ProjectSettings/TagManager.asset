@@ -7,16 +7,17 @@ TagManager:
   - static_Obstacles
   - Blocking
   - Monster
+  - Ghost Player
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Real Player
   - Water
   - UI
-  - Enemy
-  - 
-  - 
+  - Real Enemy
+  - Ghost Player
+  - Ghost Enemy
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Static_Obstacles
     uniqueID: 3626962293
+    locked: 0
+  - name: Enemies
+    uniqueID: 3581714277
     locked: 0
   - name: Player
     uniqueID: 365756549

@@ -11,7 +11,7 @@ public enum MapSwap
 
 public class ChangeMap : MonoBehaviour
 {
-    MapSwap _mapSwap;
+    [SerializeField] MapSwap _mapSwap;
     SpriteRenderer _spriteRenderer;
     PlayerModeManager _playerModeManager;
 
@@ -36,11 +36,11 @@ public class ChangeMap : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetKeyDown(KeyCode.E))
         {
             _playerModeManager.EnablePlayers(false, _mapSwap);
         }
-        else if (Input.GetMouseButton(0))
+        else if (Input.GetKey(KeyCode.E))
         {
             timer -= Time.deltaTime;
             if (timer <= 0)
@@ -49,7 +49,7 @@ public class ChangeMap : MonoBehaviour
                 timer = maxTime;
             }
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetKeyUp(KeyCode.E))
         {
             _playerModeManager.EnablePlayers(true, _mapSwap);
             timer = maxTime;

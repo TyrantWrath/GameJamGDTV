@@ -26,7 +26,7 @@ public class MeleeAttack : MonoBehaviour
         if (timeBtwAttack <= 0)
         {
             // then you attack
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(0))
             {
                 //_animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
 
