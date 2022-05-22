@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2012693966634668443}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Attack Position
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -279,7 +279,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 365756549
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c706c1c30d8bd1d42a917fb7d23b069f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -357,7 +357,7 @@ MonoBehaviour:
   - {x: 0.2847576, y: 0.035806894, z: 0}
   m_ShapePathHash: -1183002073
   m_Mesh: {fileID: 0}
-  m_InstanceId: -13624
+  m_InstanceId: -1368
 --- !u!95 &1396997210
 Animator:
   serializedVersion: 4
@@ -611,9 +611,9 @@ GameObject:
   - component: {fileID: 4201545108161899265}
   - component: {fileID: 4201545108161899264}
   - component: {fileID: 4201545108161899266}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Ghost
-  m_TagString: Player
+  m_TagString: Ghost Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -695,7 +695,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 365756549
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c706c1c30d8bd1d42a917fb7d23b069f, type: 3}
   m_Color: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
@@ -758,7 +758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7483380726169456869}
   - component: {fileID: 2730365924730306390}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,7 +797,7 @@ MonoBehaviour:
   attackPos: {fileID: 2012693966634668443}
   whatIsEnemies:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   attackRange: 0.4
   damage: 15
   knockback: 3
