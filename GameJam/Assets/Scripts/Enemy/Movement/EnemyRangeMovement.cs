@@ -9,7 +9,7 @@ public class EnemyRangeMovement : MonoBehaviour
     private Vector3 playerDirection;
 
     private bool runAway = false;
-    private bool isWithinRange = false;
+    public bool isWithinRange = false;
 
     [SerializeField] private float speed = 2f;
     [SerializeField] private float rangeAttackDistance = 6f;
@@ -17,7 +17,7 @@ public class EnemyRangeMovement : MonoBehaviour
 
     void Awake()
     {
-        player = GameObject.Find(TagManager.PLAYER_TAG).transform;
+        player = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
     }
 
 
@@ -67,7 +67,7 @@ public class EnemyRangeMovement : MonoBehaviour
     {
         playerDirection = (player.position - transform.position).normalized;
         playerDirection.z = 0;
-
+        Rigidbody2D rb =  GetComponent<Rigidbody2D>();
         if (runAway)
         {
             transform.Translate(-playerDirection * speed * Time.deltaTime);
@@ -77,42 +77,4 @@ public class EnemyRangeMovement : MonoBehaviour
             transform.Translate(playerDirection * speed * Time.deltaTime);
         }
     }
-
-
-    public void SetTrueRunAway()
-    {
-        runAway = true;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

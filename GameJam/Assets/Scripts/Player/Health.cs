@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealthAmount = 50;
+    [SerializeField] bool isPlayer = false;
 
     private float healthAmount;
-    bool isPlayer = false;
     bool isImmune = false;
 
     public bool isAlive = true;
@@ -21,8 +21,7 @@ public class Health : MonoBehaviour
         healthAmount = maxHealthAmount;
         if (transform.CompareTag(TagManager.PLAYER_TAG))
         {
-            isPlayer = true;
-            healthSlider.value = healthAmount;
+            healthSlider.value = 1;
         }
     }
 
@@ -36,7 +35,7 @@ public class Health : MonoBehaviour
 
         if(isPlayer)
         {
-            healthSlider.value = healthAmount;
+            healthSlider.value = healthAmount / maxHealthAmount;
         }
         if (healthAmount <= 0)
         {

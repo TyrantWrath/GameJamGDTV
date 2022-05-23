@@ -53,8 +53,9 @@ public class MeleeAttack : MonoBehaviour
 
         enemy.GetComponent<Rigidbody2D>().velocity = transform.up * knockback;
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.25f);
 
+        enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         if (enemyRangeMovement != null) enemyRangeMovement.enabled = true;
         if (enemyMovement != null) enemyMovement.enabled = true;
     }

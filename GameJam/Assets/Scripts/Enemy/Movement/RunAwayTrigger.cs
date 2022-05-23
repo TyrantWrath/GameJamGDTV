@@ -4,27 +4,11 @@ using UnityEngine;
 
 public class RunAwayTrigger : MonoBehaviour
 {
-   
-
    private void OnTriggerEnter2D(Collider2D other) 
    {
-       if(other.tag == "Player")
+       if(other.CompareTag(TagManager.PLAYER_TAG))
        {
            GetComponentInParent<EnemyMovement>().SetTrueRunAway();
        }
    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

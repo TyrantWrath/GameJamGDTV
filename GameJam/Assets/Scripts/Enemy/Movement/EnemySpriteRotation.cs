@@ -15,7 +15,6 @@ public class EnemySpriteRotation : MonoBehaviour
         player = GameObject.Find("Player").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         RotateSprite();
@@ -28,26 +27,5 @@ public class EnemySpriteRotation : MonoBehaviour
 
         angleDirection = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angleDirection + 90, Vector3.forward);
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
