@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
     }
 
 

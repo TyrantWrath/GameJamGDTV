@@ -28,8 +28,6 @@ public class MeleeAttack : MonoBehaviour
 
     void Update()
     {
-        SetRotation();
-
         if(Input.GetMouseButtonDown(0))
         {
             _animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
@@ -42,21 +40,7 @@ public class MeleeAttack : MonoBehaviour
             other.GetComponent<Health>().TakeDamage(damage);
             if (!other.GetComponent<Health>().isAlive) return;
             StartCoroutine(KnockBack(other));
-            StartCoroutine(DamageEffects(other));
         }
-    }
-
-    IEnumerator DamageEffects(Collider2D enemy)
-    {
-        SpriteRenderer enemySpriteRenderer = enemy.GetComponent<SpriteRenderer>();
-        if(enemySpriteRenderer == null) enemySpriteRenderer = enemy.GetComponentInChildren<SpriteRenderer>();
-
-        Color orignalColor = enemySpriteRenderer.color;
-        enemySpriteRenderer.color = Color.red;
-
-        yield return new WaitForSeconds(0.15f);
-
-        enemySpriteRenderer.color = orignalColor;
     }
 
     IEnumerator KnockBack(Collider2D enemy)
@@ -73,12 +57,5 @@ public class MeleeAttack : MonoBehaviour
 
         if (enemyRangeMovement != null) enemyRangeMovement.enabled = true;
         if (enemyMovement != null) enemyMovement.enabled = true;
-    }
-    private void SetRotation()
-    {
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 10);
     }
 }
