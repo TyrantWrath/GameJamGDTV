@@ -5,30 +5,83 @@ using UnityEngine;
 public class WorldSlowDown : MonoBehaviour
 {
     MonoBehaviour[] enemyMovements;
+    MonoBehaviour[] enemyRangedMovements;
+    MonoBehaviour[] enemyRangedAttacks;
+    MonoBehaviour[] enemyArrows;
+    Animator[] animators;
+
+    [SerializeField] float SlowFactor = 2;
+
+    bool hasSlowedDown = false;
+
+    private void Start()
+    {
+        SetArrays();
+    }
     public void UpdateWorldSpeed(MapSwap map)
     {
         if(map == MapSwap.ghostWorld)
         {
-            enemyMovements = FindObjectsOfType<EnemyMovement>();
-
-            MonoBehaviour[] enemyRangedMovements = FindObjectsOfType<EnemyRangeMovement>();
-            MonoBehaviour[] enemyRangedAttacks = FindObjectsOfType<EnemyRangeAttack>();
-
-            Animator[] animator = FindObjectsOfType<Animator>();
+            hasSlowedDown = true;
+            SlowDown(true);
         }
         else if(map == MapSwap.realWorld)
         {
-
+            if (!hasSlowedDown) return;
+            SlowDown(false);
         }
     }
-
-    void LoopArrays()
+    void SetArrays()
     {
+        enemyMovements = FindObjectsOfType<EnemyMovement>();
+        enemyRangedMovements = FindObjectsOfType<EnemyRangeMovement>();
+        enemyRangedAttacks = FindObjectsOfType<EnemyRangeAttack>();
+        enemyArrows = FindObjectsOfType<EnemyArrow>();
+
+        animators = FindObjectsOfType<Animator>();
+    }
+    void SlowDown(bool isSlow)
+    {
+        float multiplicationFactor;
+
+        if(isSlow) multiplicationFactor = 1 / SlowFactor;
+        else multiplicationFactor = SlowFactor;
+
         foreach(EnemyMovement enemyMovement in enemyMovements)
         {
             if (enemyMovement.gameObject.CompareTag(TagManager.REAL_ENEMY_TAG))
             {
-                enemyMovement.speed *= 0.5f;
+                enemyMovement.speed *= multiplicationFactor;
+            }
+        }
+        foreach(EnemyRangeMovement enemyRangeMovement in enemyRangedMovements)
+        {
+            if (enemyRangeMovement.gameObject.CompareTag(TagManager.REAL_ENEMY_TAG))
+            {
+                enemyRangeMovement.speed *= multiplicationFactor;
+            }
+        }
+        foreach (EnemyArrow enemyArrow in enemyArrows)
+        {
+            if (enemyArrow.gameObject.CompareTag(TagManager.REAL_ENEMY_TAG))
+            {
+                enemyArrow.speed *= multiplicationFactor;
+            }
+        }
+
+        foreach (Animator animator in animators)
+        {
+            if(animator.gameObject.CompareTag(TagManager.REAL_ENEMY_TAG))
+            {
+                animator.speed *= multiplicationFactor;
+            }
+        }
+
+        foreach(EnemyRangeAttack enemyRangeAttack in enemyRangedAttacks)
+        {
+            if(enemyRangeAttack.gameObject.CompareTag(TagManager.REAL_ENEMY_TAG))
+            {
+                enemyRangeAttack.delayBetweenAttacks = enemyRangeAttack.delayBetweenAttacks / multiplicationFactor;
             }
         }
     }
