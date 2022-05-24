@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealthAmount = 50;
+    [SerializeField] private float immunityTime = 0.5f;
     [SerializeField] bool isPlayer = false;
 
     private float healthAmount;
@@ -27,7 +28,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        if (!isPlayer && isImmune) return;
+        if (isImmune) return;
 
         healthAmount -= damageAmount;
         StartCoroutine(MakeImmune());
@@ -46,7 +47,7 @@ public class Health : MonoBehaviour
     IEnumerator MakeImmune()
     {
         isImmune = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(immunityTime);
         isImmune = false;
     }
     IEnumerator DamageEffects()

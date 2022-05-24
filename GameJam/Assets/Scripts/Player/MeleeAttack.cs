@@ -63,18 +63,32 @@ public class MeleeAttack : MonoBehaviour
 
     IEnumerator KnockBack(Collider2D enemy)
     {
-        EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
-        EnemyRangeMovement enemyRangeMovement = enemy.GetComponent<EnemyRangeMovement>();
+        Rigidbody2D enemyRb = SetRigidBody(enemy);
+        if (enemyRb == null) yield break;
 
-        if (enemyRangeMovement != null) enemyRangeMovement.enabled = false;
-        if (enemyMovement != null) enemyMovement.enabled = false;
+        EnableScripts(enemy, false);
 
-        enemy.GetComponent<Rigidbody2D>().velocity = transform.up * knockback;
+        enemyRb.velocity = transform.up * knockback;
 
         yield return new WaitForSeconds(0.25f);
 
-        enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        if (enemyRangeMovement != null) enemyRangeMovement.enabled = true;
-        if (enemyMovement != null) enemyMovement.enabled = true;
+        enemyRb.velocity = Vector2.zero;
+
+        EnableScripts(enemy, true);
+    }
+
+    private static Rigidbody2D SetRigidBody(Collider2D enemy)
+    {
+        Rigidbody2D enemyRb = null;
+        if (enemy.GetComponent<Rigidbody2D>()) enemyRb = enemy.GetComponent<Rigidbody2D>();
+        else if (enemy.GetComponentInParent<Rigidbody2D>() != null) enemyRb = enemy.GetComponentInParent<Rigidbody2D>();
+        return enemyRb;
+    }
+
+    private static void EnableScripts(Collider2D enemy, bool state)
+    {
+        if (enemy.GetComponent<EnemyRangeMovement>() != null) enemy.GetComponent<EnemyRangeMovement>().enabled = state;
+        else if (enemy.GetComponent<EnemyMovement>() != null) enemy.GetComponent<EnemyMovement>().enabled = state;
+        else if (enemy.GetComponentInParent<EnemyMovement>() != null) enemy.GetComponentInParent<EnemyMovement>().enabled = state;
     }
 }

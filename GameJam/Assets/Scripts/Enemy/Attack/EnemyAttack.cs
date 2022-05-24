@@ -8,8 +8,6 @@ public class EnemyAttack : MonoBehaviour
     private Transform player = null;
     private Animator anim = null;
 
-    [SerializeField] private float attackRange = 1f;
-
     [Space(25)]
     [Header("CameraShake")]
 
@@ -24,17 +22,9 @@ public class EnemyAttack : MonoBehaviour
         player = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
         anim = GetComponent<Animator>();
     }
-
-    void Update()
+    public void Attack()
     {
-        CheckForAttackRange();
-    }
-    private void CheckForAttackRange()
-    {
-        if (Vector3.Distance(player.position, transform.position) < attackRange)
-        {
-            CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
-            anim.SetTrigger("Attack");
-        }
+        CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
+        anim.SetTrigger("Attack");
     }
 }
