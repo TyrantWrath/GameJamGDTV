@@ -6,20 +6,20 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     Vector2 movement;
-    Vector2 mousePos;
-    Vector2 myPos;
-    float myAngle;
 
     [SerializeField] private float speed = 5f;
+    float orignalSpeed;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
+    private void Start()
+    {
+        orignalSpeed = speed;
+    }
     void Update()
     {
-
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
     }
@@ -32,11 +32,11 @@ public class PlayerMovement : MonoBehaviour
 
         if(movement.x != 0 && movement.y != 0)
         {
-            speed = 3.5f;
+            speed = orignalSpeed * 0.7f;
         }
         else
         {
-            speed = 5f;
+            speed = orignalSpeed;
         }
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }

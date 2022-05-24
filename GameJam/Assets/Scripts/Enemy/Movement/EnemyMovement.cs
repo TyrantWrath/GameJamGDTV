@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-
+    private EnemyAttack enemyAttack;
     private Transform player = null;
     private Vector3 playerDirection;
 
     private bool runAway = false;
 
-    private float angleDirection;
-    private float runAwayTimer = 0.2f;
+    [SerializeField] float runAwayTimer = 0.5f;
     private float currentRunAwayTimer = 0f;
 
     [SerializeField] private float speed = 5f;
@@ -20,20 +19,18 @@ public class EnemyMovement : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
     }
-
-
-    // Update is called once per frame
+    private void Start()
+    {
+        enemyAttack = GetComponentInChildren<EnemyAttack>();
+    }
     void Update()
     {
         Movement();
     }
-
     void FixedUpdate()
     {
         RunAwayTimer();
     }
-
-
     private void Movement()
     {
         playerDirection = (player.position - transform.position).normalized;
@@ -68,37 +65,6 @@ public class EnemyMovement : MonoBehaviour
     public void SetTrueRunAway()
     {
         runAway = true;
+        enemyAttack.Attack();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

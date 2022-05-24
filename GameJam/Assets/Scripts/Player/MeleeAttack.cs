@@ -45,18 +45,27 @@ public class MeleeAttack : MonoBehaviour
 
     IEnumerator KnockBack(Collider2D enemy)
     {
-        EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
         EnemyRangeMovement enemyRangeMovement = enemy.GetComponent<EnemyRangeMovement>();
+        Rigidbody2D enemyRB = null;
 
         if(enemyRangeMovement != null) enemyRangeMovement.enabled = false;
-        if(enemyMovement != null) enemyMovement.enabled = false;
+        else if(enemy.GetComponent<EnemyMovement>()) enemy.GetComponent<EnemyMovement>().enabled = false;
+        else if(enemy.GetComponentInParent<EnemyMovement>()) enemy.GetComponentInParent<EnemyMovement>().enabled = false;
 
-        enemy.GetComponent<Rigidbody2D>().velocity = transform.up * knockback;
+        if (enemy.GetComponent<Rigidbody2D>()) enemyRB = enemy.GetComponent<Rigidbody2D>();
+        else if (enemy.GetComponentInParent<Rigidbody2D>())
+        {
+            enemyRB = enemy.GetComponentInParent<Rigidbody2D>();
+        }
+
+        if (enemyRB != null) enemyRB.velocity = transform.up * knockback;
 
         yield return new WaitForSeconds(0.25f);
 
-        enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        if (enemyRB != null) enemyRB.velocity = Vector2.zero;
+
         if (enemyRangeMovement != null) enemyRangeMovement.enabled = true;
-        if (enemyMovement != null) enemyMovement.enabled = true;
+        else if (enemy.GetComponent<EnemyMovement>()) enemy.GetComponent<EnemyMovement>().enabled = true;
+        else if (enemy.GetComponentInParent<EnemyMovement>()) enemy.GetComponentInParent<EnemyMovement>().enabled = true;
     }
 }

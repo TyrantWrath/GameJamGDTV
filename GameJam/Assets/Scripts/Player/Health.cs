@@ -63,6 +63,7 @@ public class Health : MonoBehaviour
     }
     private void Die()
     {
-        gameObject.SetActive(false);
+        if(transform.parent) transform.parent.gameObject.SetActive(false);
+        else gameObject.SetActive(false);
     }
 }
