@@ -21,7 +21,6 @@ public class ChangeMap : MonoBehaviour
     [SerializeField] private int normalWorldLayerNumber = 0;
 
     [Range(0, 5)]
-    [SerializeField] private float timeBeforeMapSwap;
     [SerializeField] private float maxTime;
 
     [SerializeField] private GameObject underWorldPostProcessing;

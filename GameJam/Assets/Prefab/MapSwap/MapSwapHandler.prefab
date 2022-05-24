@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &92577018702866494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 92577018702866495}
+  - component: {fileID: 92577018702866488}
+  m_Layer: 0
+  m_Name: MapSwapHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &92577018702866495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92577018702866494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &92577018702866488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92577018702866494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8032d73abb87b641b87ffab05325903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mapSwap: 0
+  underWorldMapItems:
+  - {fileID: 0}
+  - {fileID: 0}
+  underWorldLayerNumber: 2
+  normalWorldLayerNumber: 0
+  maxTime: 0.85
+  underWorldPostProcessing: {fileID: 0}
+  realWorldPostProcessing: {fileID: 0}
+  transitionPostProcessing: {fileID: 0}
+  _playerMaterial: {fileID: 2100000, guid: e1e7893a537635d45a2d3a253033153c, type: 2}
