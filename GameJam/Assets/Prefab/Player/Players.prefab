@@ -48,6 +48,10 @@ MonoBehaviour:
   isPlayerReal: 1
   damage: 15
   knockback: 6
+  cameraShakeIntensityEmptyAttack: 1
+  cameraShakeDurationEmptyAttack: 0.2
+  cameraShakeIntensityHitAttack: 2
+  cameraShakeDurationHitAttack: 0.4
 --- !u!61 &9103315561946144359
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -317,7 +321,7 @@ MonoBehaviour:
   - {x: 0.2847576, y: 0.035806894, z: 0}
   m_ShapePathHash: -1183002073
   m_Mesh: {fileID: 0}
-  m_InstanceId: -98408
+  m_InstanceId: -18800
 --- !u!95 &1396997210
 Animator:
   serializedVersion: 4
@@ -777,6 +781,10 @@ MonoBehaviour:
   isPlayerReal: 0
   damage: 15
   knockback: 6
+  cameraShakeIntensityEmptyAttack: 0
+  cameraShakeDurationEmptyAttack: 0
+  cameraShakeIntensityHitAttack: 0
+  cameraShakeDurationHitAttack: 0
 --- !u!61 &1399393642
 BoxCollider2D:
   m_ObjectHideFlags: 0

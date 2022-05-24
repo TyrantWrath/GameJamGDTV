@@ -9,6 +9,15 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] float knockback;
 
+    [Space(25)]
+    [Header("CameraShake")]
+
+    [Range(0f, 50f)]
+    [SerializeField] float cameraShakeIntensityHitAttack = 50f;
+
+    [Range(0f, 2f)]
+    [SerializeField] float cameraShakeDurationHitAttack = 1f;
+
     Animator _animator;
     string enemyTag;
 
@@ -16,7 +25,7 @@ public class MeleeAttack : MonoBehaviour
     {
         _animator = transform.parent.GetComponent<Animator>();
 
-        if(isPlayerReal == true)
+        if (isPlayerReal == true)
         {
             enemyTag = TagManager.REAL_ENEMY_TAG;
         }
@@ -28,17 +37,26 @@ public class MeleeAttack : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             _animator.SetTrigger(TagManager.ATTACK_ANIMATION_PARAMETER);
         }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag(enemyTag))
+
+        if (other.gameObject.CompareTag(enemyTag))
         {
+
+            CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
+
             other.GetComponent<Health>().TakeDamage(damage);
-            if (!other.GetComponent<Health>().isAlive) return;
+
+            if (!other.GetComponent<Health>().isAlive)
+            {
+                return;
+            }
+
             StartCoroutine(KnockBack(other));
         }
     }
@@ -48,8 +66,8 @@ public class MeleeAttack : MonoBehaviour
         EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
         EnemyRangeMovement enemyRangeMovement = enemy.GetComponent<EnemyRangeMovement>();
 
-        if(enemyRangeMovement != null) enemyRangeMovement.enabled = false;
-        if(enemyMovement != null) enemyMovement.enabled = false;
+        if (enemyRangeMovement != null) enemyRangeMovement.enabled = false;
+        if (enemyMovement != null) enemyMovement.enabled = false;
 
         enemy.GetComponent<Rigidbody2D>().velocity = transform.up * knockback;
 
