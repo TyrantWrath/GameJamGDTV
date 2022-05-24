@@ -19,6 +19,8 @@ public class EnemyArrow : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         RotateSprite();
+
+        Destroy(gameObject, 5);
     }
     void FixedUpdate()
     {
