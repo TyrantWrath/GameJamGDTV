@@ -33,6 +33,7 @@ public class PlayerModeManager : MonoBehaviour
             realMeleeAttack.gameObject.SetActive(true);
 
             followCam.Follow = realInstance.transform;
+            followCam.LookAt = realInstance.transform;
         }
         else if (mapSwap == MapSwap.ghostWorld)
         {
@@ -42,18 +43,19 @@ public class PlayerModeManager : MonoBehaviour
             realMeleeAttack.gameObject.SetActive(false);
 
             followCam.Follow = ghostInstance.transform;
+            followCam.LookAt = ghostInstance.transform;
         }
     }
 
     public void EnablePlayers(bool status, MapSwap mapSwap)
     {
-        if(mapSwap == MapSwap.realWorld)
+        if (mapSwap == MapSwap.realWorld)
         {
             realInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             realPlayerMovement.enabled = status;
             realMeleeAttack.enabled = status;
         }
-        else if(mapSwap == MapSwap.ghostWorld)
+        else if (mapSwap == MapSwap.ghostWorld)
         {
             ghostInstance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             ghostPlayerMovement.enabled = status;

@@ -16,7 +16,7 @@ public class EnemyArrow : MonoBehaviour
     [Header("CameraShake")]
 
     [Range(0f, 50f)]
-    [SerializeField] float cameraShakeIntensityHitAttack = 5f;
+    [SerializeField] float cameraShakeIntensityHitAttack = 1f;
 
     [Range(0f, 2f)]
     [SerializeField] float cameraShakeDurationHitAttack = 0.2f;

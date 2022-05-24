@@ -76,7 +76,6 @@ public class ChangeMap : MonoBehaviour
         }
     }
 
-
     private void ChangeWorld()
     {
         if (_mapSwap == MapSwap.ghostWorld)

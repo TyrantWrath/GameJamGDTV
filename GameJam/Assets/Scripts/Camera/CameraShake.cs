@@ -30,6 +30,7 @@ public class CameraShake : MonoBehaviour
 
     private void Update()
     {
+        transform.rotation = Quaternion.identity;
         if (shakeTimer > 0)
         {
             shakeTimer -= Time.deltaTime;
