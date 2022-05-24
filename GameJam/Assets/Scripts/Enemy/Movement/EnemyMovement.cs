@@ -36,8 +36,8 @@ public class EnemyMovement : MonoBehaviour
         playerDirection = (player.position - transform.position).normalized;
         playerDirection.z = 0;
 
-        if(runAway)
-        {          
+        if (runAway)
+        {
             transform.Translate(-playerDirection * speed * Time.deltaTime);
         }
         else
@@ -48,9 +48,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void RunAwayTimer()
     {
-        if(runAway)
+        if (runAway)
         {
-            if(currentRunAwayTimer > 0)
+            if (currentRunAwayTimer > 0)
             {
                 currentRunAwayTimer -= Time.deltaTime;
             }
@@ -65,6 +65,6 @@ public class EnemyMovement : MonoBehaviour
     public void SetTrueRunAway()
     {
         runAway = true;
-        enemyAttack.Attack();
+        //enemyAttack.Attack();
     }
 }

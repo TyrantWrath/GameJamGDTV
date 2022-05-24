@@ -27,6 +27,9 @@ public class ChangeMap : MonoBehaviour
     [SerializeField] private GameObject underWorldPostProcessing;
     [SerializeField] private GameObject realWorldPostProcessing;
     [SerializeField] private GameObject transitionPostProcessing;
+    [SerializeField] private Material _playerMaterial;
+    private float dissolveAmount;
+    private bool isDissolving;
 
     private float timer;
 
@@ -42,6 +45,16 @@ public class ChangeMap : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            isDissolving = true;
+        }
+        if (isDissolving)
+        {
+            dissolveAmount = Mathf.Clamp01(dissolveAmount + Time.deltaTime);
+            _playerMaterial.SetFloat("_DissolveAmount", dissolveAmount);
+        }
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             _playerModeManager.EnablePlayers(false, _mapSwap);
