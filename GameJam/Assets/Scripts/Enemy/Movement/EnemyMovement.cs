@@ -65,6 +65,6 @@ public class EnemyMovement : MonoBehaviour
     public void SetTrueRunAway()
     {
         runAway = true;
-        //enemyAttack.Attack();
+        enemyAttack.Attack();
     }
 }
