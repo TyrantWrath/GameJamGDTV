@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float runAwayTimer = 0.5f;
     private float currentRunAwayTimer = 0f;
 
-    [SerializeField] private float speed = 5f;
+    [SerializeField] public float speed = 5f;
 
     void Awake()
     {

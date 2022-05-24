@@ -15,6 +15,7 @@ public class ChangeMap : MonoBehaviour
     [SerializeField] MapSwap _mapSwap;
     SpriteRenderer _spriteRenderer;
     PlayerModeManager _playerModeManager;
+    WorldSlowDown _worldSlowDown;
 
     [SerializeField] private GameObject[] underWorldMapItems;
     [SerializeField] private int underWorldLayerNumber = 2;
@@ -36,15 +37,17 @@ public class ChangeMap : MonoBehaviour
     private void Start()
     {
         timer = maxTime;
+
+        _worldSlowDown = GetComponent<WorldSlowDown>();
         _playerModeManager = FindObjectOfType<PlayerModeManager>();
 
         _playerModeManager.SetPlayerMode(_mapSwap);
+        _worldSlowDown.UpdateWorldSpeed(_mapSwap);
         SetWorld();
     }
 
     private void Update()
     {
-
         DelayBeforeMapSwap();
     }
     private void DelayBeforeMapSwap()
@@ -92,6 +95,7 @@ public class ChangeMap : MonoBehaviour
             realWorldPostProcessing.SetActive(false);
         }
 
+        _worldSlowDown.UpdateWorldSpeed(_mapSwap);
         SetWorld();
     }
 

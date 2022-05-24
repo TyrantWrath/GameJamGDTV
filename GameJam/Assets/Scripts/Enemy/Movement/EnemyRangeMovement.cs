@@ -11,7 +11,7 @@ public class EnemyRangeMovement : MonoBehaviour
     private bool runAway = false;
     public bool isWithinRange = false;
 
-    [SerializeField] private float speed = 2f;
+    [SerializeField] public float speed = 2f;
     [SerializeField] private float rangeAttackDistance = 6f;
     [SerializeField] private float runAwayDistance = 4f;
 
@@ -20,8 +20,6 @@ public class EnemyRangeMovement : MonoBehaviour
         player = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         CheckForWithinRange();
