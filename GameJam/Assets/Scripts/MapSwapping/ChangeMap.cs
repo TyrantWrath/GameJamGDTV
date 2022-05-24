@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.Rendering;
 
 public enum MapSwap
 {
@@ -22,6 +23,11 @@ public class ChangeMap : MonoBehaviour
     [Range(0, 5)]
     [SerializeField] private float timeBeforeMapSwap;
     [SerializeField] private float maxTime;
+
+    [SerializeField] private GameObject underWorldPostProcessing;
+    [SerializeField] private GameObject realWorldPostProcessing;
+    [SerializeField] private GameObject transitionPostProcessing;
+
     private float timer;
 
 
@@ -36,7 +42,7 @@ public class ChangeMap : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             _playerModeManager.EnablePlayers(false, _mapSwap);
         }
@@ -67,10 +73,17 @@ public class ChangeMap : MonoBehaviour
         if (_mapSwap == MapSwap.ghostWorld)
         {
             _mapSwap = MapSwap.realWorld;
+
+
+            realWorldPostProcessing.SetActive(true);
+            underWorldPostProcessing.SetActive(false);
+
         }
         else if (_mapSwap == MapSwap.realWorld)
         {
             _mapSwap = MapSwap.ghostWorld;
+            underWorldPostProcessing.SetActive(true);
+            realWorldPostProcessing.SetActive(false);
         }
 
         SetWorld();

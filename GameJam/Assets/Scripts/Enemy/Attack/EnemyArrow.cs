@@ -11,7 +11,16 @@ public class EnemyArrow : MonoBehaviour
 
     [SerializeField] private float speed = 8f;
     [SerializeField] private int damage = 15;
-       
+
+    [Space(25)]
+    [Header("CameraShake")]
+
+    [Range(0f, 50f)]
+    [SerializeField] float cameraShakeIntensityHitAttack = 5f;
+
+    [Range(0f, 2f)]
+    [SerializeField] float cameraShakeDurationHitAttack = 0.2f;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
@@ -28,8 +37,9 @@ public class EnemyArrow : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag(TagManager.PLAYER_TAG))
+        if (collision.CompareTag(TagManager.PLAYER_TAG))
         {
+            CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
             collision.GetComponentInParent<Health>().TakeDamage(damage);
             Destroy(gameObject);
         }
