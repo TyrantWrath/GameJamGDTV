@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2479709547544788592}
   m_Layer: 0
   m_Name: EnemyArrow
-  m_TagString: Untagged
+  m_TagString: Real Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,6 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   damage: 15
+  cameraShakeIntensityHitAttack: 5
+  cameraShakeDurationHitAttack: 0.2
 --- !u!212 &6123075412166066163
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class EnemyRangeAttack : MonoBehaviour
 {
     [SerializeField] Transform arrowSpawnPoint;
     [SerializeField] GameObject arrowPrefab;
-    [SerializeField] float delayBetweenAttacks;
+    public float delayBetweenAttacks;
 
     EnemyRangeMovement rangeMovement;
     GameObject player;

@@ -9,7 +9,7 @@ public class EnemyArrow : MonoBehaviour
     private Transform player = null;
     private Vector3 playerDirection;
 
-    [SerializeField] private float speed = 8f;
+    public float speed = 8f;
     [SerializeField] private int damage = 15;
 
     [Space(25)]
