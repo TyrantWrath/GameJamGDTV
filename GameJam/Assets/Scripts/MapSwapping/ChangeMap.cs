@@ -76,6 +76,7 @@ public class ChangeMap : MonoBehaviour
 
 
             realWorldPostProcessing.SetActive(true);
+            underWorldPostProcessing.SetActive(false);
 
         }
         else if (_mapSwap == MapSwap.realWorld)
