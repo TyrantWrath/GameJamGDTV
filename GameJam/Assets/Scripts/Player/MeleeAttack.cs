@@ -47,6 +47,7 @@ public class MeleeAttack : MonoBehaviour
 
         if (other.gameObject.CompareTag(enemyTag))
         {
+            if (!other.GetComponent<Health>()) return;
 
             CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
 

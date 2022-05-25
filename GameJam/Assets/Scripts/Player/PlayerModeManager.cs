@@ -13,7 +13,12 @@ public class PlayerModeManager : MonoBehaviour
 
     PlayerMovement ghostPlayerMovement;
     MeleeAttack ghostMeleeAttack;
-    void Start()
+    void Awake()
+    {
+        SetComponents();
+    }
+
+    private void SetComponents()
     {
         realPlayerMovement = realInstance.GetComponent<PlayerMovement>();
         realMeleeAttack = realInstance.GetComponentInChildren<MeleeAttack>();
