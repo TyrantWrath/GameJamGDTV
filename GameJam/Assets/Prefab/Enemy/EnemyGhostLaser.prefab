@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2297952942830074169}
   - component: {fileID: 1826725390727969233}
   - component: {fileID: 8055232225565603922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyGhostLaser
-  m_TagString: Untagged
+  m_TagString: Ghost Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,6 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   damage: 15
+  cameraShakeIntensityHitAttack: 5
+  cameraShakeDurationHitAttack: 0.2
 --- !u!212 &1826725390727969233
 SpriteRenderer:
   m_ObjectHideFlags: 0

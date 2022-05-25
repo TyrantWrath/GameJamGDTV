@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2848839789082261047}
   - component: {fileID: 2848839789082261046}
   - component: {fileID: 2848839789082261045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,9 +111,9 @@ GameObject:
   - component: {fileID: 2848839789085345181}
   - component: {fileID: 308805894888001590}
   - component: {fileID: 5146791242250955309}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: EnemyGhostRanged
-  m_TagString: Real Enemy
+  m_TagString: Ghost Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8748898559921695114}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: ArrowSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

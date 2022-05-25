@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1124160902231903747}
   - component: {fileID: 1124160902231903746}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: ClawHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 3207594325079276281}
   - component: {fileID: 1124160902024579511}
   - component: {fileID: 1124160901380931592}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 3207594325231597096}
   - component: {fileID: 3207594325231597094}
   - component: {fileID: 3207594325231597097}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,9 +267,9 @@ GameObject:
   - component: {fileID: 1124160900861776548}
   - component: {fileID: 1124160900963583973}
   - component: {fileID: 567761390004831243}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: EnemyGhostSpearMelee
-  m_TagString: Real Enemy
+  m_TagString: Ghost Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

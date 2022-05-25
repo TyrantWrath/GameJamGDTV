@@ -10,9 +10,10 @@ public class WorldSlowDown : MonoBehaviour
     MonoBehaviour[] enemyArrows;
     Animator[] animators;
 
-    [SerializeField] float SlowFactor = 2;
+    public float slowFactor = 2;
 
     bool hasSlowedDown = false;
+    public MapSwap currentMap;
 
     private void Start()
     {
@@ -20,7 +21,10 @@ public class WorldSlowDown : MonoBehaviour
     }
     public void UpdateWorldSpeed(MapSwap map)
     {
-        if(map == MapSwap.ghostWorld)
+        enemyArrows = FindObjectsOfType<EnemyArrow>();
+        currentMap = map;
+
+        if (map == MapSwap.ghostWorld)
         {
             hasSlowedDown = true;
             SlowDown(true);
@@ -44,8 +48,8 @@ public class WorldSlowDown : MonoBehaviour
     {
         float multiplicationFactor;
 
-        if(isSlow) multiplicationFactor = 1 / SlowFactor;
-        else multiplicationFactor = SlowFactor;
+        if(isSlow) multiplicationFactor = 1 / slowFactor;
+        else multiplicationFactor = slowFactor;
 
         foreach(EnemyMovement enemyMovement in enemyMovements)
         {

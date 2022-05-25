@@ -26,6 +26,11 @@ public class EnemyArrow : MonoBehaviour
         player = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
 
         rb = GetComponent<Rigidbody2D>();
+        WorldSlowDown worldSlowDown = FindObjectOfType<WorldSlowDown>();
+        if(worldSlowDown != null && worldSlowDown.currentMap == MapSwap.ghostWorld)
+        {
+            speed /= worldSlowDown.slowFactor;
+        }
 
         RotateSprite();
 
