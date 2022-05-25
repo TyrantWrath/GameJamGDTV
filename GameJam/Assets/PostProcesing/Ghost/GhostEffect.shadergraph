@@ -586,7 +586,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Scale",
     "m_StageCapability": 3,
-    "m_Value": 100.0,
+    "m_Value": 40.0,
     "m_DefaultValue": 500.0,
     "m_Labels": []
 }
@@ -1239,7 +1239,7 @@
     "m_ShaderOutputName": "Offset",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 0.6000000238418579,
+        "x": 0.6100000143051148,
         "y": 0.20000000298023225
     },
     "m_DefaultValue": {
@@ -1440,7 +1440,7 @@
     "m_ShaderOutputName": "Center",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 0.3799999952316284,
+        "x": 1.2000000476837159,
         "y": 0.17000000178813935
     },
     "m_DefaultValue": {

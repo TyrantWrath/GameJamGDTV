@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
 
     [SerializeField] private float speed = 5f;
+
     float orignalSpeed;
 
     void Awake()
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         float rotation_z = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotation_z - 90);
 
-        if(movement.x != 0 && movement.y != 0)
+        if (movement.x != 0 && movement.y != 0)
         {
             speed = orignalSpeed * 0.7f;
         }

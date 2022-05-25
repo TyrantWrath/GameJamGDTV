@@ -8,6 +8,7 @@ public class EnemyModeManager : MonoBehaviour
     [SerializeField] GameObject realEnemyInstance;
     [SerializeField] GameObject ghostEnemyInstance;
 
+
     [SerializeField] float timeBeforeRespawn = 5f;
 
     //Components
@@ -23,7 +24,7 @@ public class EnemyModeManager : MonoBehaviour
     }
     private void Update()
     {
-        if(!realEnemyHealth.isAlive && !hasGhostSpawned)
+        if (!realEnemyHealth.isAlive && !hasGhostSpawned)
         {
             ghostEnemyInstance.transform.position = realEnemyInstance.transform.position;
             StartCoroutine(EnemyRespawnTimer());
@@ -59,16 +60,18 @@ public class EnemyModeManager : MonoBehaviour
         else if (map == MapSwap.realWorld)
         {
             ghostEnemyInstance.SetActive(false);
+
         }
         else if (map == MapSwap.ghostWorld && !realEnemyHealth.isAlive && ghostEnemyHealth.isAlive)
         {
             ghostEnemyInstance.SetActive(true);
+
         }
     }
     public IEnumerator EnemyRespawnTimer()
     {
         yield return new WaitForSeconds(timeBeforeRespawn);
-        if(ghostEnemyHealth.isAlive)
+        if (ghostEnemyHealth.isAlive)
         {
             realEnemyHealth.ResetHealth();
             SetEnemyMode(currentMap);

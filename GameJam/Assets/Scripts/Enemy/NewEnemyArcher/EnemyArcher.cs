@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRangeMovement : MonoBehaviour
+public class EnemyArcher : MonoBehaviour
 {
 
     private Transform player = null;
@@ -16,13 +16,15 @@ public class EnemyRangeMovement : MonoBehaviour
     [SerializeField] private float rangeAttackDistance = 6f;
     [SerializeField] private float runAwayDistance = 4f;
 
+
+
     void Awake()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         CheckForWithinRange();
         CheckForRunAway();
@@ -69,13 +71,11 @@ public class EnemyRangeMovement : MonoBehaviour
         playerDirection.z = 0;
         if (runAway)
         {
-            _rigidBody2D.velocity = new Vector2(-playerDirection.x, -playerDirection.y) * speed;
-            //transform.Translate(-playerDirection * speed * Time.deltaTime);
+            transform.Translate(-playerDirection * speed * Time.deltaTime);
         }
         else
         {
-            _rigidBody2D.velocity = new Vector2(playerDirection.x, playerDirection.y) * speed;
-            //transform.Translate(-playerDirection * speed * Time.deltaTime);
+            transform.Translate(playerDirection * speed * Time.deltaTime);
         }
     }
 }

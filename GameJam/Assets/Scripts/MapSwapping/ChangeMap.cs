@@ -30,6 +30,10 @@ public class ChangeMap : MonoBehaviour
     [SerializeField] private GameObject realWorldPostProcessing;
     [SerializeField] private GameObject transitionPostProcessing;
     [SerializeField] private Material _playerMaterial;
+    [SerializeField] private Shader _ghostShader;
+    [SerializeField] private Shader _dissolveShader;
+
+
     private float dissolveAmount = 1;
     private bool isDissolving;
 
@@ -66,6 +70,7 @@ public class ChangeMap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            _playerMaterial.shader = _dissolveShader;
             _playerModeManager.EnablePlayers(false, _mapSwap);
         }
         else if (Input.GetKey(KeyCode.E))
@@ -84,6 +89,7 @@ public class ChangeMap : MonoBehaviour
         {
             _playerModeManager.EnablePlayers(true, _mapSwap);
             _playerMaterial.SetFloat("_DissolveAmount", 1);
+            _playerMaterial.shader = _ghostShader;
             timer = maxTime;
         }
     }

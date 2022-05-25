@@ -6,13 +6,21 @@ public class Hellow : MonoBehaviour
 {
     [SerializeField] private Material _myMaterial;
 
-    [SerializeField] private float twirlStrenght;
+    [SerializeField] private float maxTwirlStrenght;
+    [SerializeField] private Shader _ghostShader;
     [SerializeField] private float duration;
-    [SerializeField] private float currentTwirlStrenght;
+    [SerializeField] float currentmaxTwirlStrenght;
+    SpriteRenderer _renderer;
+
     bool timeToGoUp;
 
+    private void Start()
+    {
+        _renderer = GetComponent<SpriteRenderer>();
+    }
     private void Update()
     {
+        /*
         duration -= Time.deltaTime * 5;
         if (!timeToGoUp)
         {
@@ -24,15 +32,21 @@ public class Hellow : MonoBehaviour
         else if (timeToGoUp)
         {
             duration += Time.deltaTime * 5;
-            if (duration >= twirlStrenght)
+            if (duration >= maxTwirlStrenght)
             {
                 timeToGoUp = false;
             }
         }
+*/
+
+        currentmaxTwirlStrenght = Mathf.PingPong(Time.time * duration, maxTwirlStrenght);
+        if (_myMaterial.shader == _ghostShader)
+        {
+            _myMaterial.SetFloat("_Twirl_Strenght", currentmaxTwirlStrenght);
+
+        }
 
 
-
-        _myMaterial.SetFloat("_Twirl_Strenght", duration);
 
     }
 
