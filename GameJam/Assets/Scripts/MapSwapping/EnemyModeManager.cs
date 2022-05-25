@@ -10,6 +10,7 @@ public class EnemyModeManager : MonoBehaviour
 
 
     [SerializeField] float timeBeforeRespawn = 5f;
+    float respawnTimer = 0;
 
     //Components
     Health realEnemyHealth = null;
@@ -18,17 +19,26 @@ public class EnemyModeManager : MonoBehaviour
 
     bool hasGhostSpawned = false;
 
-    void Start()
+    void Awake()
     {
         SetComponents();
     }
     private void Update()
     {
-        if (!realEnemyHealth.isAlive && !hasGhostSpawned)
+        if(currentMap != MapSwap.ghostWorld && !realEnemyHealth.isAlive) respawnTimer += Time.deltaTime;
+
+        if(!realEnemyHealth.isAlive && !hasGhostSpawned)
         {
-            ghostEnemyInstance.transform.position = realEnemyInstance.transform.position;
-            StartCoroutine(EnemyRespawnTimer());
-            hasGhostSpawned = true;
+            if(respawnTimer >= timeBeforeRespawn)
+            {
+                EnemyRespawn();
+            }
+            else
+            {
+                hasGhostSpawned = true;
+                ghostEnemyInstance.transform.position = realEnemyInstance.transform.position;
+                SetEnemyMode(currentMap);
+            }
         }
     }
     private void SetComponents()
@@ -68,13 +78,14 @@ public class EnemyModeManager : MonoBehaviour
 
         }
     }
-    public IEnumerator EnemyRespawnTimer()
+    public void EnemyRespawn()
     {
-        yield return new WaitForSeconds(timeBeforeRespawn);
-        if (ghostEnemyHealth.isAlive)
+        if(ghostEnemyHealth.isAlive)
         {
             realEnemyHealth.ResetHealth();
             SetEnemyMode(currentMap);
+
+            respawnTimer = 0;
         }
     }
 }

@@ -38,7 +38,7 @@ public class PlayerModeManager : MonoBehaviour
             realMeleeAttack.gameObject.SetActive(true);
 
             followCam.Follow = realInstance.transform;
-            // followCam.LookAt = realInstance.transform;
+            //followCam.LookAt = realInstance.transform;
         }
         else if (map == MapSwap.ghostWorld)
         {
@@ -48,7 +48,7 @@ public class PlayerModeManager : MonoBehaviour
             realMeleeAttack.gameObject.SetActive(false);
 
             followCam.Follow = ghostInstance.transform;
-            // followCam.LookAt = ghostInstance.transform;
+            //followCam.LookAt = ghostInstance.transform;
         }
     }
 
