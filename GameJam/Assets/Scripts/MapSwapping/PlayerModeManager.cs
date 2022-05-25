@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerModeManager : MonoBehaviour
 {
-    [SerializeField] GameObject ghostInstance;
-    [SerializeField] GameObject realInstance;
+    public GameObject ghostInstance;
+    public GameObject realInstance;
     [SerializeField] CinemachineVirtualCamera followCam;
 
     PlayerMovement realPlayerMovement;

@@ -4736,6 +4736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realEnemyInstance: {fileID: 1616873230}
   ghostEnemyInstance: {fileID: 383934330}
+  timeBeforeRespawn: 5
 --- !u!4 &593659797
 Transform:
   m_ObjectHideFlags: 0
@@ -5029,7 +5030,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660909752}
   m_CullTransparentMesh: 1
---- !u!43 &747814890
+--- !u!43 &881744725
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

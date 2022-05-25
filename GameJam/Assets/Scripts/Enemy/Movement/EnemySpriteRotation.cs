@@ -12,7 +12,14 @@ public class EnemySpriteRotation : MonoBehaviour
     
     void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        if (transform.CompareTag(TagManager.REAL_ENEMY_TAG))
+        {
+            player = FindObjectOfType<PlayerModeManager>().realInstance.transform;
+        }
+        else if (transform.CompareTag(TagManager.GHOST_ENEMY_TAG))
+        {
+            player = FindObjectOfType<PlayerModeManager>().ghostInstance.transform;
+        }
     }
 
     void Update()

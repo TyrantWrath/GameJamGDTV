@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3464733218435777032}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Real Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8427c4e705e43047b3e9bc29e54c7bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2
+  cameraShakeIntensityHitAttack: 1
+  cameraShakeDurationHitAttack: 0.2
 --- !u!1 &1373400971497829119
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ba60d55baeba44685cc22de2ccf0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runAwayTimer: 0.5
   speed: 2.5
 --- !u!114 &3464733218955202724
 MonoBehaviour:
@@ -230,7 +232,7 @@ MonoBehaviour:
   - {x: 0.020128727, y: 0.1405803, z: 0}
   m_ShapePathHash: -760017897
   m_Mesh: {fileID: 0}
-  m_InstanceId: -30392
+  m_InstanceId: 46844
 --- !u!114 &3464733218316256741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthAmount: 50
+  immunityTime: 0.5
   isPlayer: 0
+  isParentMainGameobject: 0
   isAlive: 1
   healthSlider: {fileID: 0}
 --- !u!61 &4066171134889313803
@@ -286,7 +290,7 @@ GameObject:
   - component: {fileID: 1373400971653231657}
   m_Layer: 0
   m_Name: HitBox
-  m_TagString: Untagged
+  m_TagString: Real Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -346,7 +350,7 @@ GameObject:
   - component: {fileID: 3464733217062882306}
   m_Layer: 6
   m_Name: ClawHitBox
-  m_TagString: Untagged
+  m_TagString: Real Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

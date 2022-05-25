@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2848839789082261045}
   m_Layer: 8
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Ghost Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,9 +108,9 @@ GameObject:
   - component: {fileID: 2848839789085345182}
   - component: {fileID: 2848839789085345183}
   - component: {fileID: 2848839789085345176}
-  - component: {fileID: 2848839789085345181}
-  - component: {fileID: 308805894888001590}
+  - component: {fileID: 5351053903998228445}
   - component: {fileID: 5146791242250955309}
+  - component: {fileID: 5394177645527261306}
   m_Layer: 8
   m_Name: EnemyGhostRanged
   m_TagString: Ghost Enemy
@@ -172,7 +172,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &2848839789085345181
+--- !u!114 &5351053903998228445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,23 +181,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2848839789085345172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbe4351e6a1d9aa4fad90540d9ca2395, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWithinRange: 0
-  speed: 2
-  rangeAttackDistance: 4
-  runAwayDistance: 2.5
---- !u!114 &308805894888001590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2848839789085345172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73aef49029746a4bb08157b7f938a8a, type: 3}
+  m_Script: {fileID: 11500000, guid: bddf6e93b5c241044a779056e1f552f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   arrowSpawnPoint: {fileID: 8748898559921695114}
@@ -218,8 +202,25 @@ MonoBehaviour:
   maxHealthAmount: 50
   immunityTime: 0.5
   isPlayer: 0
+  isParentMainGameobject: 0
   isAlive: 1
   healthSlider: {fileID: 0}
+--- !u!114 &5394177645527261306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848839789085345172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe4351e6a1d9aa4fad90540d9ca2395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWithinRange: 1
+  speed: 1
+  rangeAttackDistance: 4
+  runAwayDistance: 2.5
 --- !u!1 &8748898559921695125
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +232,7 @@ GameObject:
   - component: {fileID: 8748898559921695114}
   m_Layer: 8
   m_Name: ArrowSpawnPoint
-  m_TagString: Untagged
+  m_TagString: Ghost Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

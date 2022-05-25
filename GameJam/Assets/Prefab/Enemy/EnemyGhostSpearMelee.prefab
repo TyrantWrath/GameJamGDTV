@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1124160902231903746}
   m_Layer: 8
   m_Name: ClawHitBox
-  m_TagString: Untagged
+  m_TagString: Ghost Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 1124160901380931592}
   m_Layer: 8
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Ghost Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 3207594325231597097}
   m_Layer: 8
   m_Name: HitBox
-  m_TagString: Untagged
+  m_TagString: Ghost Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   - {x: 0.020128727, y: 0.1405803, z: 0}
   m_ShapePathHash: -760017897
   m_Mesh: {fileID: 0}
-  m_InstanceId: -19926
+  m_InstanceId: 46916
 --- !u!114 &1124160900963583973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +367,7 @@ MonoBehaviour:
   maxHealthAmount: 50
   immunityTime: 0.5
   isPlayer: 0
+  isParentMainGameobject: 0
   isAlive: 1
   healthSlider: {fileID: 0}
 --- !u!61 &567761390004831243

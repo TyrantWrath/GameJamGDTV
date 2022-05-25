@@ -23,7 +23,14 @@ public class EnemyArrow : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
+        if (transform.CompareTag(TagManager.REAL_ENEMY_TAG))
+        {
+            player = FindObjectOfType<PlayerModeManager>().realInstance.transform;
+        }
+        else if (transform.CompareTag(TagManager.GHOST_ENEMY_TAG))
+        {
+            player = FindObjectOfType<PlayerModeManager>().ghostInstance.transform;
+        }
 
         rb = GetComponent<Rigidbody2D>();
         WorldSlowDown worldSlowDown = FindObjectOfType<WorldSlowDown>();
@@ -43,7 +50,7 @@ public class EnemyArrow : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(TagManager.PLAYER_TAG))
+        if (collision.transform == player)
         {
             CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
             collision.GetComponentInParent<Health>().TakeDamage(damage);

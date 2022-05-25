@@ -19,7 +19,14 @@ public class EnemyRangeMovement : MonoBehaviour
     void Awake()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
+        if (transform.CompareTag(TagManager.REAL_ENEMY_TAG))
+        {
+            player = FindObjectOfType<PlayerModeManager>().realInstance.transform;
+        }
+        else if (transform.CompareTag(TagManager.GHOST_ENEMY_TAG))
+        {
+            player = FindObjectOfType<PlayerModeManager>().ghostInstance.transform;
+        }
     }
 
     void FixedUpdate()

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1438448524}
   m_Layer: 6
   m_Name: ClawHitBox
-  m_TagString: Untagged
+  m_TagString: Real Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,4 +377,4 @@ MonoBehaviour:
   - {x: 0.020128727, y: 0.1405803, z: 0}
   m_ShapePathHash: -760017897
   m_Mesh: {fileID: 0}
-  m_InstanceId: 52178
+  m_InstanceId: 47206

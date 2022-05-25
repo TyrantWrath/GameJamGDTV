@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 648080230943595917}
   m_Layer: 6
   m_Name: ArrowSpawnPoint
-  m_TagString: Untagged
+  m_TagString: Real Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthAmount: 50
+  immunityTime: 0.5
   isPlayer: 0
+  isParentMainGameobject: 0
   isAlive: 1
   healthSlider: {fileID: 0}
 --- !u!1 &6205179472021848631
@@ -166,7 +168,7 @@ GameObject:
   - component: {fileID: 6205179472021848626}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Real Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
