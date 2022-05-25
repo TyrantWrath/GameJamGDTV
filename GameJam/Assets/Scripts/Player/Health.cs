@@ -6,12 +6,15 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float maxHealthAmount = 50;
+    [SerializeField] int maxHealthAmount = 50;
     [SerializeField] private float immunityTime = 0.5f;
     [SerializeField] bool isPlayer = false;
+    [SerializeField] bool isParentMainGameobject = false;
 
     private float healthAmount;
     bool isImmune = false;
+    Color orignalColor;
+    SpriteRenderer spriteRenderer;
 
     public bool isAlive = true;
 
@@ -20,9 +23,17 @@ public class Health : MonoBehaviour
     private void Start()
     {
         healthAmount = maxHealthAmount;
-        if (transform.CompareTag(TagManager.PLAYER_TAG))
+        UpdateSlider();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+    }
+
+    private void UpdateSlider()
+    {
+        if (isPlayer)
         {
-            healthSlider.value = 1;
+            healthSlider.value = healthAmount / maxHealthAmount;
         }
     }
 
@@ -34,15 +45,20 @@ public class Health : MonoBehaviour
         StartCoroutine(MakeImmune());
         StartCoroutine(DamageEffects());
 
-        if(isPlayer)
-        {
-            healthSlider.value = healthAmount / maxHealthAmount;
-        }
+        UpdateSlider();
         if (healthAmount <= 0)
         {
             isAlive = false;
             Die();
         }
+    }
+    public void ResetHealth()
+    {
+        healthAmount = maxHealthAmount;
+        isAlive = true;
+        isImmune = false;
+        if(orignalColor != null) spriteRenderer.color = orignalColor;
+        UpdateSlider();
     }
     IEnumerator MakeImmune()
     {
@@ -52,10 +68,7 @@ public class Health : MonoBehaviour
     }
     IEnumerator DamageEffects()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
-        Color orignalColor = spriteRenderer.color;
+        orignalColor = spriteRenderer.color;
         spriteRenderer.color = Color.red;
 
         yield return new WaitForSeconds(0.15f);
@@ -64,7 +77,7 @@ public class Health : MonoBehaviour
     }
     private void Die()
     {
-        if(transform.parent) transform.parent.gameObject.SetActive(false);
+        if(isParentMainGameobject) transform.parent.gameObject.SetActive(false);
         else gameObject.SetActive(false);
     }
 }

@@ -277,7 +277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthAmount: 50
+  immunityTime: 0.5
   isPlayer: 0
+  isParentMainGameobject: 1
   isAlive: 1
   healthSlider: {fileID: 0}
 --- !u!1 &2529466533436243048
@@ -375,4 +377,4 @@ MonoBehaviour:
   - {x: 0.020128727, y: 0.1405803, z: 0}
   m_ShapePathHash: -760017897
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1356
+  m_InstanceId: 52178

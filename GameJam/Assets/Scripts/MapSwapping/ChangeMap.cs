@@ -17,6 +17,8 @@ public class ChangeMap : MonoBehaviour
     PlayerModeManager _playerModeManager;
     WorldSlowDown _worldSlowDown;
 
+    EnemyModeManager[] _enemyModeManagers;
+
     [SerializeField] private GameObject[] underWorldMapItems;
     [SerializeField] private int underWorldLayerNumber = 2;
     [SerializeField] private int normalWorldLayerNumber = 0;
@@ -40,10 +42,20 @@ public class ChangeMap : MonoBehaviour
 
         _worldSlowDown = GetComponent<WorldSlowDown>();
         _playerModeManager = FindObjectOfType<PlayerModeManager>();
+        _enemyModeManagers = FindObjectsOfType<EnemyModeManager>();
 
         _playerModeManager.SetPlayerMode(_mapSwap);
         _worldSlowDown.UpdateWorldSpeed(_mapSwap);
         SetWorld();
+        SetEnemyModes();
+    }
+
+    private void SetEnemyModes()
+    {
+        foreach (EnemyModeManager enemyModeManager in _enemyModeManagers)
+        {
+            enemyModeManager.SetEnemyMode(_mapSwap);
+        }
     }
 
     private void Update()
@@ -82,7 +94,6 @@ public class ChangeMap : MonoBehaviour
         {
             _mapSwap = MapSwap.realWorld;
 
-
             realWorldPostProcessing.SetActive(true);
             underWorldPostProcessing.SetActive(false);
 
@@ -90,12 +101,14 @@ public class ChangeMap : MonoBehaviour
         else if (_mapSwap == MapSwap.realWorld)
         {
             _mapSwap = MapSwap.ghostWorld;
+
             underWorldPostProcessing.SetActive(true);
             realWorldPostProcessing.SetActive(false);
         }
 
         _worldSlowDown.UpdateWorldSpeed(_mapSwap);
         SetWorld();
+        SetEnemyModes();
     }
 
     private void SetWorld()

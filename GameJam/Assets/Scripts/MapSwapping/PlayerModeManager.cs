@@ -27,11 +27,11 @@ public class PlayerModeManager : MonoBehaviour
         ghostMeleeAttack = ghostInstance.GetComponentInChildren<MeleeAttack>();
     }
 
-    public void SetPlayerMode(MapSwap mapSwap)
+    public void SetPlayerMode(MapSwap map)
     {
         ghostInstance.transform.position = realInstance.transform.position;
 
-        if (mapSwap == MapSwap.realWorld)
+        if (map == MapSwap.realWorld)
         {
             ghostInstance.SetActive(false);
             realPlayerMovement.enabled = true;
@@ -40,7 +40,7 @@ public class PlayerModeManager : MonoBehaviour
             followCam.Follow = realInstance.transform;
             followCam.LookAt = realInstance.transform;
         }
-        else if (mapSwap == MapSwap.ghostWorld)
+        else if (map == MapSwap.ghostWorld)
         {
             ghostInstance.SetActive(true);
             realPlayerMovement.enabled = false;

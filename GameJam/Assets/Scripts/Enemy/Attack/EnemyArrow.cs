@@ -27,7 +27,8 @@ public class EnemyArrow : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         WorldSlowDown worldSlowDown = FindObjectOfType<WorldSlowDown>();
-        if(worldSlowDown != null && worldSlowDown.currentMap == MapSwap.ghostWorld)
+
+        if(worldSlowDown.currentMap == MapSwap.ghostWorld && !gameObject.CompareTag(TagManager.GHOST_ENEMY_TAG))
         {
             speed /= worldSlowDown.slowFactor;
         }
