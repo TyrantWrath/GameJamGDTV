@@ -52,7 +52,7 @@ public class EnemyArrow : MonoBehaviour
     {
         if (collision.transform == player)
         {
-            CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
+            CameraShake.Instance.ShakeCamera(cameraShakeIntensityHitAttack, cameraShakeDurationHitAttack);
             collision.GetComponentInParent<Health>().TakeDamage(damage);
             Destroy(gameObject);
         }

@@ -10,9 +10,12 @@ public class Health : MonoBehaviour
     [SerializeField] private float immunityTime = 0.5f;
     [SerializeField] bool isPlayer = false;
     [SerializeField] bool isParentMainGameobject = false;
+    [SerializeField] float damageColorDuration = 0.2f;
 
+    float damageColorTimer = 0;
     private float healthAmount;
     bool isImmune = false;
+    bool isDamageColorOn = false;
     Color orignalColor;
     SpriteRenderer spriteRenderer;
 
@@ -27,8 +30,22 @@ public class Health : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        
+        orignalColor = spriteRenderer.color;
     }
-
+    private void Update()
+    {
+        if(isDamageColorOn)
+        {
+            damageColorTimer += Time.deltaTime;
+            if (damageColorTimer >= damageColorDuration)
+            {
+                spriteRenderer.color = orignalColor;
+                isDamageColorOn = false;
+                damageColorTimer = 0;
+            }
+        }
+    }
     private void UpdateSlider()
     {
         if (isPlayer)
@@ -43,7 +60,7 @@ public class Health : MonoBehaviour
 
         healthAmount -= damageAmount;
         StartCoroutine(MakeImmune());
-        StartCoroutine(DamageEffects());
+        DamageEffects();
 
         UpdateSlider();
         if (healthAmount <= 0)
@@ -51,6 +68,12 @@ public class Health : MonoBehaviour
             isAlive = false;
             Die();
         }
+    }
+    public void Heal(int healAmount)
+    {
+        healthAmount += healAmount;
+        if(healthAmount > maxHealthAmount) healthAmount = maxHealthAmount;
+        UpdateSlider();
     }
     public void ResetHealth()
     {
@@ -66,14 +89,11 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(immunityTime);
         isImmune = false;
     }
-    IEnumerator DamageEffects()
+    void DamageEffects()
     {
-        orignalColor = spriteRenderer.color;
         spriteRenderer.color = Color.red;
 
-        yield return new WaitForSeconds(0.15f);
-
-        spriteRenderer.color = orignalColor;
+        isDamageColorOn = true;
     }
     private void Die()
     {

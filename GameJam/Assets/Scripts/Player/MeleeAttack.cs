@@ -49,7 +49,7 @@ public class MeleeAttack : MonoBehaviour
         {
             if (!other.GetComponent<Health>()) return;
 
-            CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
+            CameraShake.Instance.ShakeCamera(cameraShakeIntensityHitAttack, cameraShakeDurationHitAttack);
 
             other.GetComponent<Health>().TakeDamage(damage);
 
