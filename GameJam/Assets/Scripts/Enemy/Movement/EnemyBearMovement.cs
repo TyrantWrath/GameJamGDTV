@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyBearMovement : MonoBehaviour
 {
-    private EnemyAttack enemyAttack = null;
+    private EnemyBearAttacks enemyBearAttacks = null;
     private Transform player = null;
     private Vector3 playerDirection;
 
     private bool runAway = false;
 
-    [SerializeField] private bool isMultipleAttacks = false;
     [SerializeField] float runAwayTimer = 0.2f;
     private float currentRunAwayTimer = 0f;
 
@@ -29,7 +28,8 @@ public class EnemyMovement : MonoBehaviour
     }
     private void Start()
     {
-        enemyAttack = GetComponentInChildren<EnemyAttack>();
+    
+        enemyBearAttacks = GetComponentInChildren<EnemyBearAttacks>();
         
     }
     void FixedUpdate()
@@ -78,7 +78,7 @@ public class EnemyMovement : MonoBehaviour
     public void SetTrueRunAway()
     {
         runAway = true;
-        enemyAttack.Attack();
+        enemyBearAttacks.Attack();
         
         
     }
