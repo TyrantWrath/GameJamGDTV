@@ -49,7 +49,7 @@ public class MeleeAttack : MonoBehaviour
         {
             if (!other.GetComponent<Health>()) return;
 
-            CameraShake.Instance.ShakeCamera(cameraShakeIntensityHitAttack, cameraShakeDurationHitAttack);
+            CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
 
             other.GetComponent<Health>().TakeDamage(damage);
 
@@ -60,6 +60,7 @@ public class MeleeAttack : MonoBehaviour
 
             StartCoroutine(KnockBack(other));
         }
+
     }
 
     IEnumerator KnockBack(Collider2D enemy)

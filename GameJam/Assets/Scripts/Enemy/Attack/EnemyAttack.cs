@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+
+    private Transform player = null;
     private Animator anim = null;
 
     [Space(25)]
@@ -17,11 +19,12 @@ public class EnemyAttack : MonoBehaviour
 
     void Awake()
     {
+        player = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
         anim = GetComponent<Animator>();
     }
     public void Attack()
     {
-        CameraShake.Instance.ShakeCamera(cameraShakeIntensityHitAttack, cameraShakeDurationHitAttack);
+        CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
         anim.SetTrigger("Attack");
     }
 }

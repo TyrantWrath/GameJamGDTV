@@ -10,4 +10,5 @@ public class TagManager
     public static string GHOST_ENEMY_TAG = "Ghost Enemy";
     public static string STATIC_OBSTACLES = "static_Obstacles";
     public static string ATTACK_ANIMATION_PARAMETER = "Attack";
+    public static string ARROW_TAG = "bullets";
 }

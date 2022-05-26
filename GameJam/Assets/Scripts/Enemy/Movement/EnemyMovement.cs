@@ -10,21 +10,20 @@ public class EnemyMovement : MonoBehaviour
 
     private bool runAway = false;
 
-    [SerializeField] private bool isMultipleAttacks = false;
-    [SerializeField] float runAwayTimer = 0.2f;
+    [SerializeField] float runAwayTimer = 0.5f;
     private float currentRunAwayTimer = 0f;
 
     [SerializeField] public float speed = 5f;
 
     void Awake()
     {
-        if (gameObject.CompareTag(TagManager.GHOST_ENEMY_TAG))
-        {
-            player = FindObjectOfType<PlayerModeManager>().ghostInstance.transform;
-        }
-        else
+        if (transform.CompareTag(TagManager.REAL_ENEMY_TAG))
         {
             player = FindObjectOfType<PlayerModeManager>().realInstance.transform;
+        }
+        else if (transform.CompareTag(TagManager.GHOST_ENEMY_TAG))
+        {
+            player = FindObjectOfType<PlayerModeManager>().ghostInstance.transform;
         }
     }
     private void Start()
@@ -32,11 +31,11 @@ public class EnemyMovement : MonoBehaviour
         enemyAttack = GetComponentInChildren<EnemyAttack>();
         
     }
-    void FixedUpdate()
+    void Update()
     {
         Movement();
     }
-    void Update()
+    void FixedUpdate()
     {
         RunAwayTimer();
     }
@@ -45,17 +44,13 @@ public class EnemyMovement : MonoBehaviour
         playerDirection = (player.position - transform.position).normalized;
         playerDirection.z = 0;
 
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb == null) rb = GetComponentInChildren<Rigidbody2D>();
         if (runAway)
         {
-            //transform.Translate(-playerDirection * speed * Time.deltaTime);
-            rb.velocity = new Vector2(-playerDirection.x, playerDirection.y) * speed;
+            transform.Translate(-playerDirection * speed * Time.deltaTime);
         }
         else
         {
-            //transform.Translate(playerDirection * speed * Time.deltaTime);
-            rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * speed;
+            transform.Translate(playerDirection * speed * Time.deltaTime);
         }
     }
 

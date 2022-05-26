@@ -8,11 +8,11 @@ public class ClawAttackTriggerCheck : MonoBehaviour
     GameObject player;
     private void Start()
     {
-        if (gameObject.CompareTag(TagManager.GHOST_ENEMY_TAG))
+        if(gameObject.CompareTag(TagManager.REAL_ENEMY_TAG))
         {
-            player = FindObjectOfType<PlayerModeManager>().ghostInstance;
+            player = FindObjectOfType<PlayerModeManager>().realInstance;
         }
-        else
+        else if (gameObject.CompareTag(TagManager.GHOST_ENEMY_TAG))
         {
             player = FindObjectOfType<PlayerModeManager>().realInstance;
         }

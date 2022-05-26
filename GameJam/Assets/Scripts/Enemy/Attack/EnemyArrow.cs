@@ -35,7 +35,7 @@ public class EnemyArrow : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         WorldSlowDown worldSlowDown = FindObjectOfType<WorldSlowDown>();
 
-        if(worldSlowDown.currentMap == MapSwap.ghostWorld && !gameObject.CompareTag(TagManager.GHOST_ENEMY_TAG))
+        if (worldSlowDown.currentMap == MapSwap.ghostWorld && !gameObject.CompareTag(TagManager.GHOST_ENEMY_TAG))
         {
             speed /= worldSlowDown.slowFactor;
         }
@@ -52,9 +52,13 @@ public class EnemyArrow : MonoBehaviour
     {
         if (collision.transform == player)
         {
-            CameraShake.Instance.ShakeCamera(cameraShakeIntensityHitAttack, cameraShakeDurationHitAttack);
+            CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
             collision.GetComponentInParent<Health>().TakeDamage(damage);
             Destroy(gameObject);
+        }
+        else if (collision.CompareTag(TagManager.ARROW_TAG))
+        {
+            Destroy(gameObject, 0.1f);
         }
     }
     private void RotateSprite()

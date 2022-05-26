@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realEnemyInstance: {fileID: 5149388934868598601}
   ghostEnemyInstance: {fileID: 8717468146011392264}
-  timeBeforeRespawn: 8
+  timeBeforeRespawn: 5
+  healAmount: 25
 --- !u!1001 &6086897591430581686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,7 +111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3464733218955202724, guid: 8ec27450cb4d9084887a8c709b6b5f0e, type: 3}
       propertyPath: m_InstanceId
-      value: -1514
+      value: -1456
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ec27450cb4d9084887a8c709b6b5f0e, type: 3}
@@ -137,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1124160900861776548, guid: 38ef9579ce7d66f46b826f3d79d7ee5e, type: 3}
       propertyPath: m_InstanceId
-      value: -1556
+      value: -1498
       objectReference: {fileID: 0}
     - target: {fileID: 1124160901380931592, guid: 38ef9579ce7d66f46b826f3d79d7ee5e, type: 3}
       propertyPath: cameraShakeIntensityHitAttack

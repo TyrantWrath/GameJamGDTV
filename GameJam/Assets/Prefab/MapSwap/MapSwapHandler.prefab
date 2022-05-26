@@ -49,15 +49,14 @@ MonoBehaviour:
   _mapSwap: 1
   underWorldMapItems:
   - {fileID: 0}
+  - {fileID: 0}
   underWorldLayerNumber: 2
   normalWorldLayerNumber: 0
   maxTime: 0.85
   underWorldPostProcessing: {fileID: 4505129767809982656}
   realWorldPostProcessing: {fileID: 4505129769098731161}
   transitionPostProcessing: {fileID: 4505129767626502020}
-  _playerMaterial: {fileID: 2100000, guid: 294e07ca15b81bd43a6d75f4c123d2aa, type: 2}
-  _ghostShader: {fileID: -6465566751694194690, guid: f71ad496ca3c20e4fbb90d7b9e3d8389, type: 3}
-  _dissolveShader: {fileID: -6465566751694194690, guid: 520857788f431c242885aad39e72da45, type: 3}
+  _playerMaterial: {fileID: 2100000, guid: e1e7893a537635d45a2d3a253033153c, type: 2}
 --- !u!114 &3774736661044925642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,8 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6288ffe61de8cfa4d98b184695d9d853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowFactor: 2
-  currentMap: 0
+  SlowFactor: 2
 --- !u!1001 &3774736660933318571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79,10 +77,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3774736661044925644}
     m_Modifications:
-    - target: {fileID: 785844434544216370, guid: 3be7ff3cbd18ffc42bf0d43dbc812b71, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 785844436571926928, guid: 3be7ff3cbd18ffc42bf0d43dbc812b71, type: 3}
       propertyPath: m_Name
       value: PostProcessingVolumes
