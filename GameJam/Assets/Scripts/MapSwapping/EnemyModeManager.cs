@@ -15,6 +15,7 @@ public class EnemyModeManager : MonoBehaviour
     //Components
     Health realEnemyHealth = null;
     Health ghostEnemyHealth = null;
+    HealthSpawn _healthSpawn;
     MapSwap currentMap;
 
     bool hasGhostSpawned = false;
@@ -22,14 +23,15 @@ public class EnemyModeManager : MonoBehaviour
     void Awake()
     {
         SetComponents();
+        _healthSpawn = GetComponent<HealthSpawn>();
     }
     private void Update()
     {
-        if(currentMap != MapSwap.ghostWorld && !realEnemyHealth.isAlive) respawnTimer += Time.deltaTime;
+        if (currentMap != MapSwap.ghostWorld && !realEnemyHealth.isAlive) respawnTimer += Time.deltaTime;
 
-        if(!realEnemyHealth.isAlive && !hasGhostSpawned)
+        if (!realEnemyHealth.isAlive && !hasGhostSpawned)
         {
-            if(respawnTimer >= timeBeforeRespawn)
+            if (respawnTimer >= timeBeforeRespawn)
             {
                 EnemyRespawn();
             }
@@ -39,6 +41,10 @@ public class EnemyModeManager : MonoBehaviour
                 ghostEnemyInstance.transform.position = realEnemyInstance.transform.position;
                 SetEnemyMode(currentMap);
             }
+        }
+        if (!ghostEnemyHealth.isAlive)
+        {
+            _healthSpawn.SpawnHeart(true, transform);
         }
     }
     private void SetComponents()
@@ -80,7 +86,7 @@ public class EnemyModeManager : MonoBehaviour
     }
     public void EnemyRespawn()
     {
-        if(ghostEnemyHealth.isAlive)
+        if (ghostEnemyHealth.isAlive)
         {
             realEnemyHealth.ResetHealth();
             SetEnemyMode(currentMap);
