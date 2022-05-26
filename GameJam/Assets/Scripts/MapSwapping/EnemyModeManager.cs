@@ -15,15 +15,14 @@ public class EnemyModeManager : MonoBehaviour
     //Components
     Health realEnemyHealth = null;
     Health ghostEnemyHealth = null;
-    HealthSpawn _healthSpawn;
     MapSwap currentMap;
 
     bool hasGhostSpawned = false;
 
+
     void Awake()
     {
         SetComponents();
-        _healthSpawn = GetComponent<HealthSpawn>();
     }
     private void Update()
     {
@@ -41,10 +40,6 @@ public class EnemyModeManager : MonoBehaviour
                 ghostEnemyInstance.transform.position = realEnemyInstance.transform.position;
                 SetEnemyMode(currentMap);
             }
-        }
-        if (!ghostEnemyHealth.isAlive)
-        {
-            _healthSpawn.SpawnHeart(true, transform);
         }
     }
     private void SetComponents()

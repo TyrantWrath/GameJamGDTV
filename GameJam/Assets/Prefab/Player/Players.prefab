@@ -48,7 +48,7 @@ MonoBehaviour:
   isPlayerReal: 1
   damage: 15
   knockback: 6
-  cameraShakeIntensityHitAttack: 25
+  cameraShakeIntensityHitAttack: 1
   cameraShakeDurationHitAttack: 0.5
 --- !u!61 &9103315561946144359
 BoxCollider2D:
@@ -141,6 +141,7 @@ MonoBehaviour:
   maxHealthAmount: 5000
   immunityTime: 0.1
   isPlayer: 1
+  isParentMainGameobject: 0
   isAlive: 1
   healthSlider: {fileID: 0}
 --- !u!1 &4201545107227881408
@@ -316,11 +317,11 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 000000004f29752d750d2fd88500cd15ada52bf4
   m_ShapePath:
   - {x: -0.30797434, y: 0.0102187395, z: 0}
-  - {x: 0.0015673637, y: -0.17568874, z: 0}
-  - {x: 0.2847576, y: 0.035806894, z: 0}
-  m_ShapePathHash: -1183002073
+  - {x: -0.10480213, y: -0.23825908, z: 0}
+  - {x: 0.10956049, y: 0.017035842, z: 0}
+  m_ShapePathHash: -72362137
   m_Mesh: {fileID: 0}
-  m_InstanceId: -26932
+  m_InstanceId: -1508
 --- !u!95 &1396997210
 Animator:
   serializedVersion: 4
@@ -640,7 +641,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e1e7893a537635d45a2d3a253033153c, type: 2}
+  - {fileID: 2100000, guid: 294e07ca15b81bd43a6d75f4c123d2aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -662,7 +663,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c25a09b050783744aa702907f4ff902f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.23113209, g: 0.69944686, b: 1, a: 0.69411767}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -780,8 +781,8 @@ MonoBehaviour:
   isPlayerReal: 0
   damage: 15
   knockback: 6
-  cameraShakeIntensityHitAttack: 0
-  cameraShakeDurationHitAttack: 0
+  cameraShakeIntensityHitAttack: 1
+  cameraShakeDurationHitAttack: 0.4
 --- !u!61 &1399393642
 BoxCollider2D:
   m_ObjectHideFlags: 0
