@@ -60,6 +60,7 @@ public class MeleeAttack : MonoBehaviour
 
             StartCoroutine(KnockBack(other));
         }
+
     }
 
     IEnumerator KnockBack(Collider2D enemy)
