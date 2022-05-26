@@ -28,18 +28,15 @@ public class EnemyModeManager : MonoBehaviour
     {
         if (currentMap != MapSwap.ghostWorld && !realEnemyHealth.isAlive) respawnTimer += Time.deltaTime;
 
+        if (respawnTimer >= timeBeforeRespawn && !realEnemyHealth.isAlive)
+        {
+            EnemyRespawn();
+        }
         if (!realEnemyHealth.isAlive && !hasGhostSpawned)
         {
-            if (respawnTimer >= timeBeforeRespawn)
-            {
-                EnemyRespawn();
-            }
-            else
-            {
-                hasGhostSpawned = true;
-                ghostEnemyInstance.transform.position = realEnemyInstance.transform.position;
-                SetEnemyMode(currentMap);
-            }
+            hasGhostSpawned = true;
+            ghostEnemyInstance.transform.position = realEnemyInstance.transform.position;
+            SetEnemyMode(currentMap);
         }
     }
     private void SetComponents()
