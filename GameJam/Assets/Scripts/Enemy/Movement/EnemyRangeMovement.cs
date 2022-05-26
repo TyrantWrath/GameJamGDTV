@@ -44,8 +44,6 @@ public class EnemyRangeMovement : MonoBehaviour
             Movement();
         }
     }
-
-
     private void CheckForWithinRange()
     {
         if (Vector3.Distance(player.position, transform.position) < rangeAttackDistance)
