@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
     private EnemyAttack enemyAttack;
     private Transform player = null;
     private Vector3 playerDirection;
+    private Rigidbody2D _rigidBody2D;
 
     private bool runAway = false;
 
@@ -29,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         enemyAttack = GetComponentInChildren<EnemyAttack>();
+        _rigidBody2D = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
@@ -45,11 +47,11 @@ public class EnemyMovement : MonoBehaviour
 
         if (runAway)
         {
-            transform.Translate(-playerDirection * speed * Time.deltaTime);
+            _rigidBody2D.velocity = new Vector2(-playerDirection.x, -playerDirection.y) * speed;
         }
         else
         {
-            transform.Translate(playerDirection * speed * Time.deltaTime);
+            _rigidBody2D.velocity = new Vector2(playerDirection.x, playerDirection.y) * speed;
         }
     }
 
