@@ -18,7 +18,9 @@ public class EnemyModeManager : MonoBehaviour
     MapSwap currentMap;
 
     bool hasGhostSpawned = false;
+    bool isEnemyCompletelyDead = false;
 
+    [SerializeField] int healAmount = 20;
 
     void Awake()
     {
@@ -27,6 +29,12 @@ public class EnemyModeManager : MonoBehaviour
     private void Update()
     {
         if (currentMap != MapSwap.ghostWorld && !realEnemyHealth.isAlive) respawnTimer += Time.deltaTime;
+
+        if(!isEnemyCompletelyDead && !realEnemyHealth.isAlive && !ghostEnemyHealth.isAlive)
+        {
+            isEnemyCompletelyDead = true;
+            FindObjectOfType<PlayerModeManager>().GetComponent<Health>().Heal(healAmount);
+        }
 
         if (respawnTimer >= timeBeforeRespawn && !realEnemyHealth.isAlive)
         {

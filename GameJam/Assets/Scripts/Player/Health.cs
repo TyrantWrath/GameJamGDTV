@@ -27,6 +27,7 @@ public class Health : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        orignalColor = spriteRenderer.color;
     }
 
     private void UpdateSlider()
@@ -35,6 +36,11 @@ public class Health : MonoBehaviour
         {
             healthSlider.value = healthAmount / maxHealthAmount;
         }
+    }
+    public void Heal(int healAmount)
+    {
+        healthAmount += healAmount;
+        UpdateSlider();
     }
 
     public void TakeDamage(int damageAmount)
@@ -68,7 +74,6 @@ public class Health : MonoBehaviour
     }
     IEnumerator DamageEffects()
     {
-        orignalColor = spriteRenderer.color;
         spriteRenderer.color = Color.red;
 
         yield return new WaitForSeconds(0.15f);
