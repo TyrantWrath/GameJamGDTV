@@ -12,6 +12,6 @@ public class MainMenu : MonoBehaviour
     }
     public void LoadingCreditScene()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("CreditScene");
     }
 }
