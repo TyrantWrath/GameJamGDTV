@@ -16,7 +16,6 @@ public class ProjectileFollow : MonoBehaviour
     void Awake()
     {
         player = GameObject.Find("Player").transform;
-        Debug.Log(player);
     }
 
     void Start()

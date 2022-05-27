@@ -25,7 +25,7 @@ public class EnemyBearAttacks : MonoBehaviour
     private float currentAttack2Timer = 5f;
     private bool canRangeAttack = false;
 
-    [SerializeField] private float rangeAttackDistance = 1.5f;
+    [SerializeField] private float rangeAttackDistance = 2f;
 
     void Awake()
     {

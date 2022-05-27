@@ -5,7 +5,7 @@ using UnityEngine;
 public class BearProjectileDamage : MonoBehaviour
 {
     private Rigidbody2D rb = null;
-    private GameObject player = null;
+    private Transform player = null;
     public float rotationSpeed = 2f;
     [SerializeField] private int damage = 15;
 
@@ -20,7 +20,7 @@ public class BearProjectileDamage : MonoBehaviour
 
     void Awake()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("Player").transform;
     }
 
     void Start()
@@ -37,6 +37,10 @@ public class BearProjectileDamage : MonoBehaviour
         {
             CameraShake.Instance.ShakeCamera(cameraShakeIntensityHitAttack, cameraShakeDurationHitAttack);
             collision.GetComponentInParent<Health>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        else if(collision.CompareTag(TagManager.ARROW_TAG))
+        {
             Destroy(gameObject);
         }
     }

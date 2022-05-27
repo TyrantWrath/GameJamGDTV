@@ -58,7 +58,7 @@ public class EnemyArrow : MonoBehaviour
         }
         else if (collision.CompareTag(TagManager.ARROW_TAG))
         {
-            Destroy(gameObject, 0.1f);
+            Destroy(gameObject);
         }
     }
     private void RotateSprite()
