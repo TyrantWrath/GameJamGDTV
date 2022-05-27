@@ -18,7 +18,7 @@ MonoBehaviour:
     m_Value: 0.6
   intensity:
     m_OverrideState: 1
-    m_Value: 0.76
+    m_Value: 4.1
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -40,6 +40,28 @@ MonoBehaviour:
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-6557809896154256651
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
+  m_Name: LiftGammaGain
+  m_EditorClassIdentifier: 
+  active: 1
+  lift:
+    m_OverrideState: 0
+    m_Value: {x: 0.89277494, y: 0.9419717, z: 1, w: 0}
+  gamma:
+    m_OverrideState: 1
+    m_Value: {x: 0.9668492, y: 0.99606335, z: 1, w: 0}
+  gain:
+    m_OverrideState: 1
+    m_Value: {x: 0.90982056, y: 0.9351423, z: 1, w: 0}
 --- !u!114 &-1003524996515231292
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -83,3 +105,50 @@ MonoBehaviour:
   components:
   - {fileID: -7440646678804282293}
   - {fileID: -1003524996515231292}
+  - {fileID: 4428625696587923535}
+  - {fileID: -6557809896154256651}
+  - {fileID: 8480413090792102443}
+--- !u!114 &4428625696587923535
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: 
+  active: 1
+  postExposure:
+    m_OverrideState: 1
+    m_Value: 0.2
+  contrast:
+    m_OverrideState: 1
+    m_Value: 5
+  colorFilter:
+    m_OverrideState: 1
+    m_Value: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  hueShift:
+    m_OverrideState: 0
+    m_Value: 4
+  saturation:
+    m_OverrideState: 1
+    m_Value: -8
+--- !u!114 &8480413090792102443
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 1

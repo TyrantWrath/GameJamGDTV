@@ -49,6 +49,7 @@ MonoBehaviour:
   _mapSwap: 1
   underWorldMapItems:
   - {fileID: 0}
+  - {fileID: 0}
   underWorldLayerNumber: 2
   normalWorldLayerNumber: 0
   maxTime: 0.85
