@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533915572814332995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.9916239, y: -0.0016517639, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -165,7 +165,6 @@ GameObject:
   - component: {fileID: 1533915573653021805}
   - component: {fileID: 1035204331}
   - component: {fileID: 326177152460861121}
-  - component: {fileID: 222406170738317956}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -219,7 +218,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.80684596, y: 1}
+    m_SensorSize: {x: 2.1505377, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -255,21 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a09b36d4702e84692c8e5309f871f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &222406170738317956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533915573653021806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 0}
-  m_Damping: 0.5
-  m_MaxWindowSize: -1
 --- !u!1 &1533915574157387248
 GameObject:
   m_ObjectHideFlags: 0
