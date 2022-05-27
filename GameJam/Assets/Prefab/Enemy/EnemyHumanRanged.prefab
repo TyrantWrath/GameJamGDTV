@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 6205179472021848624}
   - component: {fileID: 6205179472021848625}
   - component: {fileID: 6205179472021848626}
+  - component: {fileID: 648080231571145882}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Real Enemy
@@ -252,3 +253,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c30eedbd20deb4086afcec63af5cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &648080231571145882
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6205179472021848631}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c13d3bb2e8e67c4ba8af7e9f6e1fc4f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
