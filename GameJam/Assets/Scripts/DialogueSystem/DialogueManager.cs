@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -13,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI dialogueText;
 
     Animator animator;
+    PlayerModeManager playerModeManager;
 
 
     void Start()
@@ -20,10 +20,12 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
 
         animator = GetComponent<Animator>();
+        playerModeManager = FindObjectOfType<PlayerModeManager>();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
+        playerModeManager.EnablePlayers(false, playerModeManager.currentMap);
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
 
@@ -61,6 +63,8 @@ public class DialogueManager : MonoBehaviour
     
     private void EndDialogue()
     {
+        playerModeManager.EnablePlayers(true, playerModeManager.currentMap);
+
         animator.SetBool("IsOpen", false);
     }
 }

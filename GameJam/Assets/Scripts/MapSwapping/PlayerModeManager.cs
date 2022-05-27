@@ -13,6 +13,8 @@ public class PlayerModeManager : MonoBehaviour
 
     PlayerMovement ghostPlayerMovement;
     MeleeAttack ghostMeleeAttack;
+
+    public MapSwap currentMap;
     void Awake()
     {
         SetComponents();
@@ -30,6 +32,8 @@ public class PlayerModeManager : MonoBehaviour
     public void SetPlayerMode(MapSwap map)
     {
         ghostInstance.transform.position = realInstance.transform.position;
+
+        currentMap = map;
 
         if (map == MapSwap.realWorld)
         {
