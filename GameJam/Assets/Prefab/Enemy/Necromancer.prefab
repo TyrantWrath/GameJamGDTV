@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003118049329407338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.008, y: -0.07, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.24000001, y: -0.61000013, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4985424398230128993}
-  m_RootOrder: 1
+  m_Father: {fileID: 4985424398233369288}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4985424398230129003
 GameObject:
@@ -43,11 +43,11 @@ GameObject:
   - component: {fileID: 4985424398230128992}
   - component: {fileID: 4985424398230128999}
   - component: {fileID: 4985424398230128994}
-  - component: {fileID: 7417372446764063945}
   - component: {fileID: 2723489202121041618}
-  m_Layer: 8
+  - component: {fileID: -8784026558966931038}
+  m_Layer: 6
   m_Name: Necromancer
-  m_TagString: Ghost Enemy
+  m_TagString: Real Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,7 +65,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4985424398233369288}
-  - {fileID: 2003118049329407349}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -122,21 +121,6 @@ MonoBehaviour:
   speed: 2
   rangeAttackDistance: 4
   runAwayDistance: 2.5
---- !u!114 &7417372446764063945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4985424398230129003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73aef49029746a4bb08157b7f938a8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowSpawnPoint: {fileID: 2003118049329407349}
-  arrowPrefab: {fileID: 2297952942830074173, guid: e05d94831bcc7214ea4ea9e42a974c3d, type: 3}
-  delayBetweenAttacks: 2
 --- !u!114 &2723489202121041618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +139,22 @@ MonoBehaviour:
   isParentMainGameobject: 0
   isAlive: 1
   healthSlider: {fileID: 0}
+--- !u!114 &-8784026558966931038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985424398230129003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca6f1edf255235428d47f038fd2c5a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowSpawnPoint: {fileID: 2003118049329407349}
+  projectile: {fileID: 8337782148060778817, guid: f1fdcb83f888a464eafacbadd8a933b1, type: 3}
+  projectile2: {fileID: 6808021563947114610, guid: 89ad120f70c982246898dd893fe2e0de, type: 3}
+  delayBetweenAttacks: 2
 --- !u!1 &4985424398233369295
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,9 +167,9 @@ GameObject:
   - component: {fileID: 4985424398233369289}
   - component: {fileID: 4985424398233369290}
   - component: {fileID: 7108603954778131697}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Real Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,7 +185,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2003118049329407349}
   m_Father: {fileID: 4985424398230128993}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

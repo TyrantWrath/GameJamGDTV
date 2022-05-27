@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6808021563947114615}
   - component: {fileID: 6808021563947114612}
-  - component: {fileID: 6808021563947114614}
   - component: {fileID: 6395356236710256798}
   - component: {fileID: 3337418612245438749}
+  - component: {fileID: -7396239191938540790}
   m_Layer: 0
   m_Name: NecromancerStunProjectile
   m_TagString: Real Enemy
@@ -61,22 +61,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16097903, y: 0.35639477}
   m_EdgeRadius: 0
---- !u!114 &6808021563947114614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6808021563947114610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38be56af165095c4798f8ab90d9a04a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  damage: 15
-  cameraShakeIntensityHitAttack: 5
-  cameraShakeDurationHitAttack: 0.2
 --- !u!212 &6395356236710256798
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -150,3 +134,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-7396239191938540790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808021563947114610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c4c34d29031194894a1adce45eb7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canSlow: 1
+  speed: 4
+  damage: 15
+  cameraShakeIntensityHitAttack: 1
+  cameraShakeDurationHitAttack: 0.2
