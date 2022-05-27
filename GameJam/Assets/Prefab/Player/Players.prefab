@@ -126,6 +126,7 @@ MonoBehaviour:
   ghostInstance: {fileID: 4201545108161899268}
   realInstance: {fileID: 4201545107227881408}
   followCam: {fileID: 0}
+  currentMap: 0
 --- !u!114 &6689396191478818113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +284,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08890431, y: -0.22759527}
+  m_Offset: {x: -0.08890431, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -321,7 +322,7 @@ MonoBehaviour:
   - {x: 0.10956049, y: 0.017035842, z: 0}
   m_ShapePathHash: -72362137
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1656
+  m_InstanceId: -43818
 --- !u!95 &1396997210
 Animator:
   serializedVersion: 4
@@ -700,7 +701,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.12172103, y: -0.0057964325}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -711,7 +712,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.44751692, y: 0.5170717}
   m_EdgeRadius: 0
 --- !u!95 &3182099128504365039
 Animator:
