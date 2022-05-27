@@ -49,7 +49,6 @@ MonoBehaviour:
   _mapSwap: 1
   underWorldMapItems:
   - {fileID: 0}
-  - {fileID: 0}
   underWorldLayerNumber: 2
   normalWorldLayerNumber: 0
   maxTime: 0.85
@@ -57,6 +56,8 @@ MonoBehaviour:
   realWorldPostProcessing: {fileID: 4505129769098731161}
   transitionPostProcessing: {fileID: 4505129767626502020}
   _playerMaterial: {fileID: 2100000, guid: e1e7893a537635d45a2d3a253033153c, type: 2}
+  _ghostShader: {fileID: -6465566751694194690, guid: f71ad496ca3c20e4fbb90d7b9e3d8389, type: 3}
+  _dissolveShader: {fileID: -6465566751694194690, guid: 520857788f431c242885aad39e72da45, type: 3}
 --- !u!114 &3774736661044925642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6288ffe61de8cfa4d98b184695d9d853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlowFactor: 2
+  slowFactor: 2
+  currentMap: 0
 --- !u!1001 &3774736660933318571
 PrefabInstance:
   m_ObjectHideFlags: 0
