@@ -24,7 +24,7 @@ public class EnemyAttack : MonoBehaviour
     }
     public void Attack()
     {
-        CameraShake.Instance.ShakeCamera(cameraShakeDurationHitAttack, cameraShakeDurationHitAttack);
+        CameraShake.Instance.ShakeCamera(cameraShakeIntensityHitAttack, cameraShakeDurationHitAttack);
         anim.SetTrigger("Attack");
     }
 }

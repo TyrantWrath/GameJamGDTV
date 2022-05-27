@@ -17230,19 +17230,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4201545107227881421, guid: 73556a1a921340b4da65281173ab65d3, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.5077088
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4201545107227881421, guid: 73556a1a921340b4da65281173ab65d3, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.32270175
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4201545107227881421, guid: 73556a1a921340b4da65281173ab65d3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.078125
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4201545107227881421, guid: 73556a1a921340b4da65281173ab65d3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.40625
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6689396191478818113, guid: 73556a1a921340b4da65281173ab65d3, type: 3}
       propertyPath: healthSlider
