@@ -55,7 +55,7 @@ MonoBehaviour:
   underWorldPostProcessing: {fileID: 4505129767809982656}
   realWorldPostProcessing: {fileID: 4505129769098731161}
   transitionPostProcessing: {fileID: 4505129767626502020}
-  _playerMaterial: {fileID: 2100000, guid: e1e7893a537635d45a2d3a253033153c, type: 2}
+  _playerMaterial: {fileID: 2100000, guid: 294e07ca15b81bd43a6d75f4c123d2aa, type: 2}
   _ghostShader: {fileID: -6465566751694194690, guid: f71ad496ca3c20e4fbb90d7b9e3d8389, type: 3}
   _dissolveShader: {fileID: -6465566751694194690, guid: 520857788f431c242885aad39e72da45, type: 3}
 --- !u!114 &3774736661044925642
@@ -79,6 +79,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3774736661044925644}
     m_Modifications:
+    - target: {fileID: 785844434544216370, guid: 3be7ff3cbd18ffc42bf0d43dbc812b71, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 785844436571926928, guid: 3be7ff3cbd18ffc42bf0d43dbc812b71, type: 3}
       propertyPath: m_Name
       value: PostProcessingVolumes
