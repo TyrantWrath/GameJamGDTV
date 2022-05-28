@@ -49,6 +49,7 @@ MonoBehaviour:
   _mapSwap: 1
   underWorldMapItems:
   - {fileID: 0}
+  - {fileID: 0}
   underWorldLayerNumber: 2
   normalWorldLayerNumber: 0
   maxTime: 0.85
@@ -89,11 +90,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 785844436571926929, guid: 3be7ff3cbd18ffc42bf0d43dbc812b71, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.772393
+      value: -6.47
       objectReference: {fileID: 0}
     - target: {fileID: 785844436571926929, guid: 3be7ff3cbd18ffc42bf0d43dbc812b71, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.396698
+      value: 6.64
       objectReference: {fileID: 0}
     - target: {fileID: 785844436571926929, guid: 3be7ff3cbd18ffc42bf0d43dbc812b71, type: 3}
       propertyPath: m_LocalPosition.z
