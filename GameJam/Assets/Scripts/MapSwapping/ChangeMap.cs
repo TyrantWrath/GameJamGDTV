@@ -32,6 +32,7 @@ public class ChangeMap : MonoBehaviour
     [SerializeField] private Material _playerMaterial;
     [SerializeField] private Shader _ghostShader;
     [SerializeField] private Shader _dissolveShader;
+    [SerializeField] private Shader _currentShaderInUse;
 
 
     private float dissolveAmount = 1;
@@ -65,6 +66,7 @@ public class ChangeMap : MonoBehaviour
     private void Update()
     {
         DelayBeforeMapSwap();
+        _currentShaderInUse = _playerMaterial.shader;
     }
     private void DelayBeforeMapSwap()
     {

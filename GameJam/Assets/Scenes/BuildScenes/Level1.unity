@@ -24503,6 +24503,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3774736661044925643, guid: 1202a1e3f26e496409cb48eba613aee4, type: 3}
+      propertyPath: _playerMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 294e07ca15b81bd43a6d75f4c123d2aa, type: 2}
+    - target: {fileID: 3774736661044925643, guid: 1202a1e3f26e496409cb48eba613aee4, type: 3}
       propertyPath: underWorldMapItems.Array.data[0]
       value: 
       objectReference: {fileID: 539205043}
@@ -31027,9 +31031,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2321503168002455144, guid: 8d695f498622abb468e1b06d29ab9e69, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 294e07ca15b81bd43a6d75f4c123d2aa, type: 2}
     - target: {fileID: 2321503168002455145, guid: 8d695f498622abb468e1b06d29ab9e69, type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321503168002455146, guid: 8d695f498622abb468e1b06d29ab9e69, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2321503168002455147, guid: 8d695f498622abb468e1b06d29ab9e69, type: 3}
       propertyPath: m_RootOrder
