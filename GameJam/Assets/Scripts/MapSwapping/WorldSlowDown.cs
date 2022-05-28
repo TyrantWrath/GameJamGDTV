@@ -22,6 +22,7 @@ public class WorldSlowDown : MonoBehaviour
     public void UpdateWorldSpeed(MapSwap map)
     {
         enemyArrows = FindObjectsOfType<EnemyArrow>();
+        SetArrays();
         currentMap = map;
 
         if (map == MapSwap.ghostWorld)

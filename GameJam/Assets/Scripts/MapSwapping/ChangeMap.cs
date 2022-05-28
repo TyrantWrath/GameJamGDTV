@@ -46,7 +46,6 @@ public class ChangeMap : MonoBehaviour
 
         _worldSlowDown = GetComponent<WorldSlowDown>();
         _playerModeManager = FindObjectOfType<PlayerModeManager>();
-        _enemyModeManagers = FindObjectsOfType<EnemyModeManager>();
 
         _playerModeManager.SetPlayerMode(_mapSwap);
         _worldSlowDown.UpdateWorldSpeed(_mapSwap);
@@ -56,6 +55,7 @@ public class ChangeMap : MonoBehaviour
 
     private void SetEnemyModes()
     {
+        _enemyModeManagers = FindObjectsOfType<EnemyModeManager>();
         foreach (EnemyModeManager enemyModeManager in _enemyModeManagers)
         {
             enemyModeManager.SetEnemyMode(_mapSwap);

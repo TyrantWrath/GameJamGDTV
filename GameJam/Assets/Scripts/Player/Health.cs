@@ -24,8 +24,7 @@ public class Health : MonoBehaviour
         healthAmount = maxHealthAmount;
         UpdateSlider();
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         orignalColor = spriteRenderer.color;
     }
 
@@ -63,6 +62,19 @@ public class Health : MonoBehaviour
         isAlive = true;
         isImmune = false;
         if(orignalColor != null) spriteRenderer.color = orignalColor;
+        
+        GetComponentInChildren<Animator>().SetBool("IsDead", false);
+        foreach (MonoBehaviour script in GetComponentsInChildren<MonoBehaviour>())
+        {
+            if (script != this)
+            {
+                script.enabled = true;
+            }
+        }
+        foreach (Collider2D collider in GetComponentsInChildren<Collider2D>())
+        {
+            collider.enabled = false;
+        }
         UpdateSlider();
     }
     IEnumerator MakeImmune()
@@ -83,9 +95,21 @@ public class Health : MonoBehaviour
     {
         if(!isPlayer)
         {
-            Animator animator = GetComponent<Animator>();
-            if(animator == null) animator = GetComponentInChildren<Animator>();
+            Animator animator = GetComponentInChildren<Animator>();
             animator.SetBool("IsDead", true);
+
+            foreach(MonoBehaviour script in GetComponentsInChildren<MonoBehaviour>())
+            {
+                if(script != this)
+                {
+                    script.enabled = false;
+                }
+            }
+            GetComponentInChildren<Rigidbody2D>().velocity = Vector2.zero;
+            foreach(Collider2D collider in GetComponentsInChildren<Collider2D>())
+            {
+                collider.enabled = false;
+            }
         }
     }
 }

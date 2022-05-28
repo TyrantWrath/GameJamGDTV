@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,10 +33,8 @@ public class EnemyModeManager : MonoBehaviour
     }
     private void SetMonoBehaviourArrays()
     {
-        MonoBehaviour[] mainRealEnemyMonobehaviours = realEnemyInstance.GetComponents<MonoBehaviour>();
-        MonoBehaviour[] childRealEnemyMonobehaviours = realEnemyInstance.GetComponentsInChildren<MonoBehaviour>();
-        realEnemyMonoBehaviours = mainRealEnemyMonobehaviours.Concat(childRealEnemyMonobehaviours).ToArray();
-        
+        realEnemyMonoBehaviours = GetComponentsInChildren<MonoBehaviour>();
+        ghostEnemyMonoBehaviours = GetComponentsInChildren<MonoBehaviour>();   
     }
     private void Update()
     {
@@ -47,6 +44,7 @@ public class EnemyModeManager : MonoBehaviour
         {
             isEnemyCompletelyDead = true;
             FindObjectOfType<PlayerModeManager>().GetComponent<Health>().Heal(healAmount);
+            Destroy(gameObject, 1);
         }
 
         if (respawnTimer >= timeBeforeRespawn && !realEnemyHealth.isAlive)
