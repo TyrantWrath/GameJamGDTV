@@ -15,7 +15,6 @@ public class EnemyModeManager : MonoBehaviour
     //Components
     Health realEnemyHealth = null;
     Health ghostEnemyHealth = null;
-    [SerializeField] private BatchHandler _batchHandler;
 
     MonoBehaviour[] realEnemyMonoBehaviours;
     MonoBehaviour[] ghostEnemyMonoBehaviours;
@@ -105,9 +104,6 @@ public class EnemyModeManager : MonoBehaviour
 
             respawnTimer = 0;
         }
-        else if (!ghostEnemyHealth.isAlive)
-        {
-            _batchHandler.RemoveEnemyFromGroup(this);
-        }
+
     }
 }

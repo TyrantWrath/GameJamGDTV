@@ -5,10 +5,6 @@ using UnityEngine;
 public class DestroyThisGameObject : MonoBehaviour
 {
 
-    private void Start() 
-    {
-        
-    }
 
     public void DestroyThisGameObjectMethod()
     {
@@ -17,7 +13,8 @@ public class DestroyThisGameObject : MonoBehaviour
 
     public void DestroyThisParentGameObjectMethod()
     {
-        Destroy(transform.parent.gameObject);
+
+        Destroy(transform.parent.gameObject, 0.1f);
     }
 
 }
