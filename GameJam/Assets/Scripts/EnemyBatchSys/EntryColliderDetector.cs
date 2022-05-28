@@ -6,6 +6,7 @@ public class EntryColliderDetector : MonoBehaviour
 {
     [SerializeField] BatchHandler _batchHandler;
 
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag(TagManager.PLAYER_TAG))

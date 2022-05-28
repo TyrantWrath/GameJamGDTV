@@ -32,6 +32,7 @@ public class BatchHandler : MonoBehaviour
 
     private void Update()
     {
+
         for (int i = 0; i < listOfEnemiesInGroup.Count; i++)
         {
             if (listOfEnemiesInGroup[i] == null)
