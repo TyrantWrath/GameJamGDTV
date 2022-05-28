@@ -30,15 +30,22 @@ public class BatchHandler : MonoBehaviour
 
     }*/
 
-    public void RemoveEnemyFromGroup(EnemyModeManager enemyScripts)
+    private void Update()
     {
-        listOfEnemiesInGroup.Remove(enemyScripts);
+
+        for (int i = 0; i < listOfEnemiesInGroup.Count; i++)
+        {
+            if (listOfEnemiesInGroup[i] == null)
+            {
+                listOfEnemiesInGroup.Remove(listOfEnemiesInGroup[i]);
+            }
+        }
         if (listOfEnemiesInGroup.Count <= 0)
         {
             PlayerCanMoveOn(true);
         }
     }
-    private void PlayerCanMoveOn(bool canPlayerMoveOn)
+    public void PlayerCanMoveOn(bool canPlayerMoveOn)
     {
         if (canPlayerMoveOn)
         {

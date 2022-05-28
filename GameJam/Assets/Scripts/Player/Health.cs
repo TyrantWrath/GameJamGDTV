@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
 
     private void UpdateSlider()
     {
-        if (isPlayer)
+        if (isPlayer && healthSlider != null)
         {
             healthSlider.value = healthAmount / maxHealthAmount;
         }
@@ -61,8 +61,8 @@ public class Health : MonoBehaviour
         healthAmount = maxHealthAmount;
         isAlive = true;
         isImmune = false;
-        if(orignalColor != null) spriteRenderer.color = orignalColor;
-        
+        if (orignalColor != null) spriteRenderer.color = orignalColor;
+
         GetComponentInChildren<Animator>().SetBool("IsDead", false);
         foreach (MonoBehaviour script in GetComponentsInChildren<MonoBehaviour>())
         {
@@ -97,32 +97,32 @@ public class Health : MonoBehaviour
     }
     private void Die()
     {
-        if(transform.GetComponent<DestroyThisGameObject>())
+        if (transform.GetComponent<DestroyThisGameObject>())
         {
             transform.GetComponent<DestroyThisGameObject>().DestroyThisGameObjectMethod();
         }
-        if(!isPlayer)
+        if (!isPlayer)
         {
             Animator animator = GetComponentInChildren<Animator>();
             animator.SetBool("IsDead", true);
 
-            foreach(MonoBehaviour script in GetComponentsInChildren<MonoBehaviour>())
+            foreach (MonoBehaviour script in GetComponentsInChildren<MonoBehaviour>())
             {
-                if(script != this)
+                if (script != this)
                 {
                     script.enabled = false;
                 }
             }
-            if(transform.parent.GetComponent<EnemyBearMovement>())
+            if (transform.parent.GetComponent<EnemyBearMovement>())
             {
                 transform.parent.GetComponent<EnemyBearMovement>().enabled = false;
             }
-            
+
             Rigidbody2D rb = GetComponentInChildren<Rigidbody2D>();
-            if(rb == null) rb = GetComponentInParent<Rigidbody2D>();
+            if (rb == null) rb = GetComponentInParent<Rigidbody2D>();
             rb.velocity = Vector2.zero;
 
-            foreach(Collider2D collider in GetComponentsInChildren<Collider2D>())
+            foreach (Collider2D collider in GetComponentsInChildren<Collider2D>())
             {
                 collider.enabled = false;
             }
