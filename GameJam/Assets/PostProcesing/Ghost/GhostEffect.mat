@@ -52,7 +52,7 @@ Material:
     m_Floats:
     - _DissolveAmount: 1
     - _EnableExternalAlpha: 0
-    - _Twirl_Strenght: 2.7699432
+    - _Twirl_Strenght: 7.019348
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveColor: {r: 0, g: 1, b: 0.5733938, a: 0}

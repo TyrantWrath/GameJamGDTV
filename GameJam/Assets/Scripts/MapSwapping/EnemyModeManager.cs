@@ -15,6 +15,7 @@ public class EnemyModeManager : MonoBehaviour
     //Components
     Health realEnemyHealth = null;
     Health ghostEnemyHealth = null;
+    [SerializeField] private BatchHandler _batchHandler;
 
     MonoBehaviour[] realEnemyMonoBehaviours;
     MonoBehaviour[] ghostEnemyMonoBehaviours;
@@ -34,13 +35,13 @@ public class EnemyModeManager : MonoBehaviour
     private void SetMonoBehaviourArrays()
     {
         realEnemyMonoBehaviours = GetComponentsInChildren<MonoBehaviour>();
-        ghostEnemyMonoBehaviours = GetComponentsInChildren<MonoBehaviour>();   
+        ghostEnemyMonoBehaviours = GetComponentsInChildren<MonoBehaviour>();
     }
     private void Update()
     {
         if (currentMap != MapSwap.ghostWorld && !realEnemyHealth.isAlive) respawnTimer += Time.deltaTime;
 
-        if(!isEnemyCompletelyDead && !realEnemyHealth.isAlive && !ghostEnemyHealth.isAlive)
+        if (!isEnemyCompletelyDead && !realEnemyHealth.isAlive && !ghostEnemyHealth.isAlive)
         {
             isEnemyCompletelyDead = true;
             FindObjectOfType<PlayerModeManager>().GetComponent<Health>().Heal(healAmount);
@@ -103,6 +104,10 @@ public class EnemyModeManager : MonoBehaviour
             SetEnemyMode(currentMap);
 
             respawnTimer = 0;
+        }
+        else if (!ghostEnemyHealth.isAlive)
+        {
+            _batchHandler.RemoveEnemyFromGroup(this);
         }
     }
 }
