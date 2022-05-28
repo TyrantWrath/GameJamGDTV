@@ -97,6 +97,10 @@ public class Health : MonoBehaviour
     }
     private void Die()
     {
+        if(transform.GetComponent<DestroyThisGameObject>())
+        {
+            transform.GetComponent<DestroyThisGameObject>().DestroyThisGameObjectMethod();
+        }
         if(!isPlayer)
         {
             Animator animator = GetComponentInChildren<Animator>();
@@ -113,6 +117,7 @@ public class Health : MonoBehaviour
             {
                 transform.parent.GetComponent<EnemyBearMovement>().enabled = false;
             }
+            
             Rigidbody2D rb = GetComponentInChildren<Rigidbody2D>();
             if(rb == null) rb = GetComponentInParent<Rigidbody2D>();
             rb.velocity = Vector2.zero;

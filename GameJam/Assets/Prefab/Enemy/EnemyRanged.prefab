@@ -104,7 +104,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -713253019
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 19a31b3ba46635d4f8a2f29a263b132f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -221,7 +221,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.55}
   serializedVersion: 2
   m_Radius: 0.25
 --- !u!114 &6837388182632943079
@@ -270,6 +270,5 @@ MonoBehaviour:
   maxHealthAmount: 50
   immunityTime: 0.5
   isPlayer: 0
-  isParentMainGameobject: 0
   isAlive: 1
   healthSlider: {fileID: 0}
