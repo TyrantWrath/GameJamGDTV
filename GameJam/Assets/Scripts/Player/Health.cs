@@ -71,6 +71,10 @@ public class Health : MonoBehaviour
                 script.enabled = true;
             }
         }
+        if (transform.parent.GetComponent<EnemyBearMovement>())
+        {
+            transform.parent.GetComponent<EnemyBearMovement>().enabled = false;
+        }
         foreach (Collider2D collider in GetComponentsInChildren<Collider2D>())
         {
             collider.enabled = true;
@@ -105,7 +109,14 @@ public class Health : MonoBehaviour
                     script.enabled = false;
                 }
             }
-            GetComponentInChildren<Rigidbody2D>().velocity = Vector2.zero;
+            if(transform.parent.GetComponent<EnemyBearMovement>())
+            {
+                transform.parent.GetComponent<EnemyBearMovement>().enabled = false;
+            }
+            Rigidbody2D rb = GetComponentInChildren<Rigidbody2D>();
+            if(rb == null) rb = GetComponentInParent<Rigidbody2D>();
+            rb.velocity = Vector2.zero;
+
             foreach(Collider2D collider in GetComponentsInChildren<Collider2D>())
             {
                 collider.enabled = false;
