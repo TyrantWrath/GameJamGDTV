@@ -70,12 +70,12 @@ public class ChangeMap : MonoBehaviour
     }
     private void DelayBeforeMapSwap()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(1))
         {
             _playerMaterial.shader = _dissolveShader;
             _playerModeManager.EnablePlayers(false, _mapSwap);
         }
-        else if (Input.GetKey(KeyCode.E))
+        else if (Input.GetMouseButton(1))
         {
             dissolveAmount = Mathf.Clamp01(timer);
             _playerMaterial.SetFloat("_DissolveAmount", dissolveAmount);
@@ -87,7 +87,7 @@ public class ChangeMap : MonoBehaviour
             }
         }
 
-        else if (Input.GetKeyUp(KeyCode.E))
+        else if (Input.GetMouseButtonUp(1))
         {
             _playerModeManager.EnablePlayers(true, _mapSwap);
             _playerMaterial.SetFloat("_DissolveAmount", 1);
