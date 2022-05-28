@@ -48,7 +48,10 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Map
+  - name: LevelFloor
+    uniqueID: 4166252219
+    locked: 0
+  - name: LevelWalls
     uniqueID: 762653007
     locked: 0
   - name: Static_Obstacles
