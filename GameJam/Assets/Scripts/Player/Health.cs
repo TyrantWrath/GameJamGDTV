@@ -9,7 +9,6 @@ public class Health : MonoBehaviour
     [SerializeField] int maxHealthAmount = 50;
     [SerializeField] private float immunityTime = 0.5f;
     [SerializeField] bool isPlayer = false;
-    [SerializeField] bool isParentMainGameobject = false;
 
     private float healthAmount;
     bool isImmune = false;
@@ -82,7 +81,11 @@ public class Health : MonoBehaviour
     }
     private void Die()
     {
-        if(isParentMainGameobject) transform.parent.gameObject.SetActive(false);
-        else gameObject.SetActive(false);
+        if(!isPlayer)
+        {
+            Animator animator = GetComponent<Animator>();
+            if(animator == null) animator = GetComponentInChildren<Animator>();
+            animator.SetBool("IsDead", true);
+        }
     }
 }

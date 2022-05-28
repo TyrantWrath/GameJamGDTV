@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,10 @@ public class EnemyModeManager : MonoBehaviour
     //Components
     Health realEnemyHealth = null;
     Health ghostEnemyHealth = null;
+
+    MonoBehaviour[] realEnemyMonoBehaviours;
+    MonoBehaviour[] ghostEnemyMonoBehaviours;
+
     MapSwap currentMap;
 
     bool hasGhostSpawned = false;
@@ -25,6 +30,14 @@ public class EnemyModeManager : MonoBehaviour
     void Awake()
     {
         SetComponents();
+        SetMonoBehaviourArrays();
+    }
+    private void SetMonoBehaviourArrays()
+    {
+        MonoBehaviour[] mainRealEnemyMonobehaviours = realEnemyInstance.GetComponents<MonoBehaviour>();
+        MonoBehaviour[] childRealEnemyMonobehaviours = realEnemyInstance.GetComponentsInChildren<MonoBehaviour>();
+        realEnemyMonoBehaviours = mainRealEnemyMonobehaviours.Concat(childRealEnemyMonobehaviours).ToArray();
+        
     }
     private void Update()
     {
