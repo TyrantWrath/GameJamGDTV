@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 3207594325079276281}
   - component: {fileID: 1124160902024579511}
   - component: {fileID: 1124160901380931592}
+  - component: {fileID: 533075719876493046}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Ghost Enemy
@@ -138,7 +139,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -713253019
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -954870249, guid: 20430a9e9c404cd4a90d8b056288ca4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -197,6 +198,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraShakeIntensityHitAttack: 50
   cameraShakeDurationHitAttack: 0.2
+--- !u!114 &533075719876493046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3207594325079276283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235f51980c8189d488afe4a2da84efdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3207594325231597099
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +369,7 @@ MonoBehaviour:
   - {x: 0.020128727, y: 0.1405803, z: 0}
   m_ShapePathHash: -760017897
   m_Mesh: {fileID: 0}
-  m_InstanceId: -10366
+  m_InstanceId: 70814
 --- !u!114 &1124160900963583973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +385,6 @@ MonoBehaviour:
   maxHealthAmount: 50
   immunityTime: 0.5
   isPlayer: 0
-  isParentMainGameobject: 0
   isAlive: 1
   healthSlider: {fileID: 0}
 --- !u!61 &567761390004831243
