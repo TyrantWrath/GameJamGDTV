@@ -73,7 +73,7 @@ public class Health : MonoBehaviour
         }
         foreach (Collider2D collider in GetComponentsInChildren<Collider2D>())
         {
-            collider.enabled = false;
+            collider.enabled = true;
         }
         UpdateSlider();
     }
