@@ -94,7 +94,10 @@ public class Health : MonoBehaviour
         if (!isPlayer)
         {
             Animator animator = GetComponentInChildren<Animator>();
-            animator.SetBool("IsDead", true);
+            if(animator != null)
+            {
+                animator.SetBool("IsDead", true);
+            }
             EnableEnemyScripts(false);
 
             Rigidbody2D rb = GetComponentInChildren<Rigidbody2D>();
@@ -117,7 +120,7 @@ public class Health : MonoBehaviour
                 script.enabled = state;
             }
         }
-        if (transform.parent.GetComponent<EnemyBearMovement>())
+        if (transform.parent && transform.parent.GetComponent<EnemyBearMovement>())
         {
             transform.parent.GetComponent<EnemyBearMovement>().enabled = state;
         }
