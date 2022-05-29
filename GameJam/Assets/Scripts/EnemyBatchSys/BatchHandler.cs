@@ -29,6 +29,18 @@ public class BatchHandler : MonoBehaviour
         }
 
     }*/
+    private void Start()
+    {
+        EnableEnemyScripts(false);
+    }
+
+    public void EnableEnemyScripts(bool state)
+    {
+        foreach (EnemyModeManager enemy in listOfEnemiesInGroup)
+        {
+            enemy.realEnemyHealth.EnableEnemyScripts(state);
+        }
+    }
 
     private void Update()
     {

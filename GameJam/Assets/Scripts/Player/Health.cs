@@ -64,17 +64,7 @@ public class Health : MonoBehaviour
         if (orignalColor != null) spriteRenderer.color = orignalColor;
 
         GetComponentInChildren<Animator>().SetBool("IsDead", false);
-        foreach (MonoBehaviour script in GetComponentsInChildren<MonoBehaviour>())
-        {
-            if (script != this)
-            {
-                script.enabled = true;
-            }
-        }
-        if (transform.parent.GetComponent<EnemyBearMovement>())
-        {
-            transform.parent.GetComponent<EnemyBearMovement>().enabled = false;
-        }
+        EnableEnemyScripts(true);
         foreach (Collider2D collider in GetComponentsInChildren<Collider2D>())
         {
             collider.enabled = true;
@@ -105,18 +95,7 @@ public class Health : MonoBehaviour
         {
             Animator animator = GetComponentInChildren<Animator>();
             animator.SetBool("IsDead", true);
-
-            foreach (MonoBehaviour script in GetComponentsInChildren<MonoBehaviour>())
-            {
-                if (script != this)
-                {
-                    script.enabled = false;
-                }
-            }
-            if (transform.parent.GetComponent<EnemyBearMovement>())
-            {
-                transform.parent.GetComponent<EnemyBearMovement>().enabled = false;
-            }
+            EnableEnemyScripts(false);
 
             Rigidbody2D rb = GetComponentInChildren<Rigidbody2D>();
             if (rb == null) rb = GetComponentInParent<Rigidbody2D>();
@@ -126,6 +105,21 @@ public class Health : MonoBehaviour
             {
                 collider.enabled = false;
             }
+        }
+    }
+
+    public void EnableEnemyScripts(bool state)
+    {
+        foreach (MonoBehaviour script in GetComponentsInChildren<MonoBehaviour>())
+        {
+            if (script != this)
+            {
+                script.enabled = state;
+            }
+        }
+        if (transform.parent.GetComponent<EnemyBearMovement>())
+        {
+            transform.parent.GetComponent<EnemyBearMovement>().enabled = state;
         }
     }
 }
