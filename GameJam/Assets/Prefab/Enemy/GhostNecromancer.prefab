@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9102587773432037370}
   - component: {fileID: 9102587773432037369}
   - component: {fileID: 9102587773432037368}
+  - component: {fileID: 24229203}
   m_Layer: 0
   m_Name: GhostNecromancer
   m_TagString: Untagged
@@ -133,3 +134,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGhost: 1
+--- !u!114 &24229203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102587773432037375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3321ef3ef220fbf48b89f574a1644072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthAmount: 50
+  immunityTime: 0.5
+  isPlayer: 0
+  isAlive: 1
+  healthSlider: {fileID: 0}
