@@ -17,7 +17,7 @@ public class DialogueOnTriggerStart : MonoBehaviour
         }
         else
         {
-            if(other.tag == "Real Player")
+            if(other.tag == "Player")
             {
                 GetComponent<DialogueTrigger>().TriggerDialogue();
             }

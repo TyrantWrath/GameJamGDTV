@@ -6,17 +6,32 @@ public class TriggerActivate : MonoBehaviour
 {
 
     [SerializeField] private GameObject[] gameObjectsNeeded = null;
+    public bool isGhost = false;
 
     private void OnTriggerStay2D(Collider2D other)
     {
 
-        if (other.tag == "Ghost Player")
+        if(isGhost)
         {
-            for (int i = 0; i < gameObjectsNeeded.Length; i++)
+            if (other.tag == "Ghost Player")
             {
-                gameObjectsNeeded[i].SetActive(true);
+                for (int i = 0; i < gameObjectsNeeded.Length; i++)
+                {
+                    gameObjectsNeeded[i].SetActive(true);
+                }
+                Debug.Log("Stay");
             }
-            Debug.Log("Stay");
+        }
+        else
+        {
+            if (other.tag == "Player")
+            {
+                for (int i = 0; i < gameObjectsNeeded.Length; i++)
+                {
+                    gameObjectsNeeded[i].SetActive(true);
+                }
+                Debug.Log("Player Stay");
+            }
         }
     }
 
@@ -24,13 +39,27 @@ public class TriggerActivate : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
 
-        if (other.tag == "Ghost Player")
+        if(isGhost)
         {
-            for (int i = 0; i < gameObjectsNeeded.Length; i++)
+            if (other.tag == "Ghost Player")
             {
-                gameObjectsNeeded[i].SetActive(false);
+                for (int i = 0; i < gameObjectsNeeded.Length; i++)
+                {
+                    gameObjectsNeeded[i].SetActive(false);
+                }
+                Debug.Log("Exit");
             }
-            Debug.Log("Exit");
+        }
+        else
+        {
+            if (other.tag == "Player")
+            {
+                for (int i = 0; i < gameObjectsNeeded.Length; i++)
+                {
+                    gameObjectsNeeded[i].SetActive(false);
+                }
+                Debug.Log("Player Exit");
+            }
         }
     }
 

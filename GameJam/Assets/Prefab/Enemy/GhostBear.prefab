@@ -64,9 +64,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55fc4bc1a7859e40a837bed9e798241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject:
+  gameObjectsNeeded:
   - {fileID: 4809947818691708932}
   - {fileID: 4809947819700732419}
+  isGhost: 1
 --- !u!50 &4809947818672713476
 Rigidbody2D:
   serializedVersion: 4
@@ -101,7 +102,7 @@ GameObject:
   - component: {fileID: 4809947818691708938}
   m_Layer: 8
   m_Name: Talk Text
-  m_TagString: Untagged
+  m_TagString: Ghost Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,6 +385,7 @@ MonoBehaviour:
     - Sorry about attacking you earlier. I can't control my body now that I have
       passed on.
     - Seems like my soul is stuck too. You mind setting me free?
+  isGhost: 1
 --- !u!114 &787312138132787972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,9 +425,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4809947819700732416}
   - component: {fileID: 4809947819700732417}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: E Button
-  m_TagString: Untagged
+  m_TagString: Ghost Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
