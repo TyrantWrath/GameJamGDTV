@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -713253019
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 0c72e4814623c2a4c961460df96e9066, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -160,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7209916509769546338}
   - component: {fileID: 3912890779248450238}
+  - component: {fileID: 7986682233287081615}
   m_Layer: 0
   m_Name: BearProjectile
   m_TagString: Real Enemy
@@ -197,3 +198,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   projectileDestroyTimer: 10
+--- !u!114 &7986682233287081615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209916509769546343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7338c706d1270b49aa4472692a71992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clipSFX: {fileID: 8300000, guid: f41ebdd21bce2e44fa936fbe1f41fbe0, type: 3}
+  volume: 0.2

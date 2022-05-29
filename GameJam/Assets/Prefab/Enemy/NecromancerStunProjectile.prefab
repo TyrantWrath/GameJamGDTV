@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6395356236710256798}
   - component: {fileID: 3337418612245438749}
   - component: {fileID: -7396239191938540790}
+  - component: {fileID: 8065613994074772735}
   m_Layer: 0
   m_Name: NecromancerStunProjectile
   m_TagString: Real Enemy
@@ -100,7 +101,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -713253019
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 7c571789a0cc0274c9685b7363857cce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151,3 +152,17 @@ MonoBehaviour:
   damage: 15
   cameraShakeIntensityHitAttack: 1
   cameraShakeDurationHitAttack: 0.2
+--- !u!114 &8065613994074772735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808021563947114610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7338c706d1270b49aa4472692a71992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clipSFX: {fileID: 8300000, guid: 4b689a612e500c54d9cb11bf4ffdec32, type: 3}
+  volume: 1
