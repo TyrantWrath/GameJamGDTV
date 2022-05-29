@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
     {
         if (isPlayer && healthSlider != null)
         {
-            healthSlider.value = healthAmount / maxHealthAmount;
+            healthSlider.value = healthAmount;
         }
     }
     public void Heal(int healAmount)
