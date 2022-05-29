@@ -74,8 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38be56af165095c4798f8ab90d9a04a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  damage: 15
+  speed: 4
+  damage: 10
   cameraShakeIntensityHitAttack: 5
   cameraShakeDurationHitAttack: 0.2
 --- !u!212 &6123075412166066163
