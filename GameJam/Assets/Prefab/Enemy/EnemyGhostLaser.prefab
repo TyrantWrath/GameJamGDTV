@@ -73,9 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38be56af165095c4798f8ab90d9a04a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 6
   damage: 15
-  cameraShakeIntensityHitAttack: 5
+  cameraShakeIntensityHitAttack: 2
   cameraShakeDurationHitAttack: 0.2
 --- !u!212 &1826725390727969233
 SpriteRenderer:
@@ -116,7 +116,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -713253019
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 216ead2d9803ff643a93e4e05b289919, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

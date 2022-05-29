@@ -9,7 +9,7 @@ public class EnemySpriteRotation : MonoBehaviour
     private Vector3 playerDirection;
     private float angleDirection;
 
-    
+
     void Awake()
     {
         if (transform.CompareTag(TagManager.REAL_ENEMY_TAG))
