@@ -111,7 +111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3464733218955202724, guid: 8ec27450cb4d9084887a8c709b6b5f0e, type: 3}
       propertyPath: m_InstanceId
-      value: -67008
+      value: -16726
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ec27450cb4d9084887a8c709b6b5f0e, type: 3}
@@ -138,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1124160900861776548, guid: 38ef9579ce7d66f46b826f3d79d7ee5e, type: 3}
       propertyPath: m_InstanceId
-      value: -67050
+      value: -16768
       objectReference: {fileID: 0}
     - target: {fileID: 1124160901380931592, guid: 38ef9579ce7d66f46b826f3d79d7ee5e, type: 3}
       propertyPath: cameraShakeIntensityHitAttack
@@ -211,6 +211,10 @@ PrefabInstance:
     - target: {fileID: 3207594325368123647, guid: 38ef9579ce7d66f46b826f3d79d7ee5e, type: 3}
       propertyPath: m_Name
       value: EnemyGhostSpearMelee
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207594325368123647, guid: 38ef9579ce7d66f46b826f3d79d7ee5e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38ef9579ce7d66f46b826f3d79d7ee5e, type: 3}

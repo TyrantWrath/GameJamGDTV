@@ -12,6 +12,7 @@ public class EntryColliderDetector : MonoBehaviour
         if (col.CompareTag(TagManager.PLAYER_TAG))
         {
             _batchHandler.PlayerCanMoveOn(false);
+            _batchHandler.EnableEnemyScripts(true);
             gameObject.SetActive(false);
         }
     }

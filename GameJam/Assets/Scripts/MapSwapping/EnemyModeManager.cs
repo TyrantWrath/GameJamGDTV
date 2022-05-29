@@ -13,11 +13,8 @@ public class EnemyModeManager : MonoBehaviour
     float respawnTimer = 0;
 
     //Components
-    Health realEnemyHealth = null;
-    Health ghostEnemyHealth = null;
-
-    MonoBehaviour[] realEnemyMonoBehaviours;
-    MonoBehaviour[] ghostEnemyMonoBehaviours;
+    public Health realEnemyHealth = null;
+    public Health ghostEnemyHealth = null;
 
     MapSwap currentMap;
 
@@ -29,12 +26,6 @@ public class EnemyModeManager : MonoBehaviour
     void Awake()
     {
         SetComponents();
-        SetMonoBehaviourArrays();
-    }
-    private void SetMonoBehaviourArrays()
-    {
-        realEnemyMonoBehaviours = GetComponentsInChildren<MonoBehaviour>();
-        ghostEnemyMonoBehaviours = GetComponentsInChildren<MonoBehaviour>();
     }
     private void Update()
     {
@@ -92,7 +83,6 @@ public class EnemyModeManager : MonoBehaviour
         else if (map == MapSwap.ghostWorld && !realEnemyHealth.isAlive && ghostEnemyHealth.isAlive)
         {
             ghostEnemyInstance.SetActive(true);
-
         }
     }
     public void EnemyRespawn()
