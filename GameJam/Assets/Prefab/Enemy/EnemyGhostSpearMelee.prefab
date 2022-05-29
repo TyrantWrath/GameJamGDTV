@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 1124160902024579511}
   - component: {fileID: 1124160901380931592}
   - component: {fileID: 533075719876493046}
+  - component: {fileID: 4252670316270599674}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Ghost Enemy
@@ -210,6 +211,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235f51980c8189d488afe4a2da84efdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4252670316270599674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3207594325079276283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd24c62fb9269434cb98242c4cbcc805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordSwingSFX:
+  - {fileID: 8300000, guid: 180eaf470b2731e4ba68452aa953dc0d, type: 3}
 --- !u!1 &3207594325231597099
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +384,7 @@ MonoBehaviour:
   - {x: 0.020128727, y: 0.1405803, z: 0}
   m_ShapePathHash: -760017897
   m_Mesh: {fileID: 0}
-  m_InstanceId: 70814
+  m_InstanceId: 45376
 --- !u!114 &1124160900963583973
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1373400971266586873}
   - component: {fileID: 3464733217135987639}
   - component: {fileID: 3464733218435777032}
+  - component: {fileID: 1664882304379415974}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Real Enemy
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -713253019
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -902399835, guid: f28171a24c175d24b9d6c07fc8fe3a7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -134,6 +135,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraShakeIntensityHitAttack: 1
   cameraShakeDurationHitAttack: 0.2
+--- !u!114 &1664882304379415974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373400971266586875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd24c62fb9269434cb98242c4cbcc805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordSwingSFX:
+  - {fileID: 8300000, guid: c59151788dc58a348875f81792ec52ae, type: 3}
 --- !u!1 &1373400971497829119
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +247,7 @@ MonoBehaviour:
   - {x: 0.020128727, y: 0.1405803, z: 0}
   m_ShapePathHash: -760017897
   m_Mesh: {fileID: 0}
-  m_InstanceId: -10306
+  m_InstanceId: 45038
 --- !u!114 &3464733218316256741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +263,6 @@ MonoBehaviour:
   maxHealthAmount: 50
   immunityTime: 0.5
   isPlayer: 0
-  isParentMainGameobject: 0
   isAlive: 1
   healthSlider: {fileID: 0}
 --- !u!61 &4066171134889313803

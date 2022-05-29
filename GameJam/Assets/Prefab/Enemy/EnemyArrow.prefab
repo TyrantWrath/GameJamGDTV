@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5927763723176640283}
   - component: {fileID: 6123075412166066163}
   - component: {fileID: 2479709547544788592}
+  - component: {fileID: 5452129360730262490}
   m_Layer: 0
   m_Name: EnemyArrow
   m_TagString: Real Enemy
@@ -116,7 +117,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -713253019
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5283ca4032bed754a8399f0b5e7b15af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -150,3 +151,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &5452129360730262490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927763723176640287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7338c706d1270b49aa4472692a71992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clipSFX: {fileID: 8300000, guid: b87eeb75e54eaea478a9390ca92616b5, type: 3}
+  volume: 1
