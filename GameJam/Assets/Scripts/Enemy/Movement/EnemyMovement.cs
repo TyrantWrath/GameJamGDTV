@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
     private EnemyAttack enemyAttack = null;
     private Transform player = null;
     private Vector3 playerDirection;
+    Rigidbody2D _rigidBody2D;
 
     private bool runAway = false;
 
@@ -17,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Awake()
     {
+        _rigidBody2D = GetComponent<Rigidbody2D>();
         if (transform.CompareTag(TagManager.REAL_ENEMY_TAG))
         {
             player = FindObjectOfType<PlayerModeManager>().realInstance.transform;
@@ -29,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         enemyAttack = GetComponentInChildren<EnemyAttack>();
-        
+
     }
     void Update()
     {
@@ -46,11 +48,13 @@ public class EnemyMovement : MonoBehaviour
 
         if (runAway)
         {
-            transform.Translate(-playerDirection * speed * Time.deltaTime);
+            _rigidBody2D.velocity = new Vector2(-playerDirection.x, -playerDirection.y) * speed;
+            //transform.Translate(-playerDirection * speed * Time.deltaTime);
         }
         else
         {
-            transform.Translate(playerDirection * speed * Time.deltaTime);
+            _rigidBody2D.velocity = new Vector2(playerDirection.x, playerDirection.y) * speed;
+            //transform.Translate(playerDirection * speed * Time.deltaTime);
         }
     }
 
@@ -74,7 +78,7 @@ public class EnemyMovement : MonoBehaviour
     {
         runAway = true;
         enemyAttack.Attack();
-        
-        
+
+
     }
 }
