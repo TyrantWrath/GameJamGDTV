@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9103315561946144359}
   m_Layer: 3
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,9 @@ MonoBehaviour:
   ghostInstance: {fileID: 4201545108161899268}
   realInstance: {fileID: 4201545107227881408}
   followCam: {fileID: 0}
+  realWorld: {fileID: 8300000, guid: ae3270678747292418f99f17409ff88b, type: 3}
+  ghostWorld: {fileID: 8300000, guid: dbd34fb8235c9714f8d40efa5d3d5bfa, type: 3}
+  ghostWorldBackgroundSound: {fileID: 8300000, guid: ba01693c8aec1f74c9f0a5e2f08f6afd, type: 3}
   currentMap: 0
 --- !u!114 &6689396191478818113
 MonoBehaviour:
@@ -159,6 +162,7 @@ GameObject:
   - component: {fileID: 4201545107227881421}
   - component: {fileID: 1341342400}
   - component: {fileID: 1396997210}
+  - component: {fileID: 126133876}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -321,7 +325,7 @@ MonoBehaviour:
   - {x: 0.10956049, y: 0.017035842, z: 0}
   m_ShapePathHash: -72362137
   m_Mesh: {fileID: 0}
-  m_InstanceId: -59030
+  m_InstanceId: -15030
 --- !u!95 &1396997210
 Animator:
   serializedVersion: 4
@@ -342,6 +346,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &126133876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4201545107227881408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5aac96f98dafa54eb2aaaa8e116f946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSFX: {fileID: 8300000, guid: ed2b3c92c2b9fd741a8360c14ff85299, type: 3}
+  heartMushSFX: {fileID: 8300000, guid: 0b92f2317f51230499357fd43a7f7932, type: 3}
 --- !u!1 &4201545107839206893
 GameObject:
   m_ObjectHideFlags: 0
