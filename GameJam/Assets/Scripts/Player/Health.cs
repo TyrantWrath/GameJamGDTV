@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -94,7 +95,7 @@ public class Health : MonoBehaviour
         if (!isPlayer)
         {
             Animator animator = GetComponentInChildren<Animator>();
-            if(animator != null)
+            if (animator != null)
             {
                 animator.SetBool("IsDead", true);
             }
@@ -109,6 +110,15 @@ public class Health : MonoBehaviour
                 collider.enabled = false;
             }
         }
+        else if (isPlayer)
+        {
+            StartCoroutine(PlayerDeathDelay());
+        }
+    }
+    IEnumerator PlayerDeathDelay()
+    {
+        yield return new WaitForSeconds(0.4f);
+        SceneManager.LoadScene("GameOver");
     }
 
     public void EnableEnemyScripts(bool state)
