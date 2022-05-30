@@ -7,7 +7,6 @@ public class DialogueTriggerWithKey : MonoBehaviour
     public bool isGhost = false;
 
     private bool isWithinRange = false;
-    [SerializeField] string playerTag;
 
     void Update()
     {
