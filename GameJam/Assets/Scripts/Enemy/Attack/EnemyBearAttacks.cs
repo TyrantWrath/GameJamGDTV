@@ -10,8 +10,8 @@ public class EnemyBearAttacks : MonoBehaviour
     [Space(25)]
     [Header("CameraShake")]
 
-    [Range(0f, 50f)]
-    [SerializeField] float cameraShakeIntensityHitAttack = 1f;
+    [Range(0f, 1f)]
+    [SerializeField] float cameraShakeIntensityHitAttack = 0.5f;
 
     [Range(0f, 2f)]
     [SerializeField] float cameraShakeDurationHitAttack = 0.2f;
@@ -33,7 +33,7 @@ public class EnemyBearAttacks : MonoBehaviour
         player = GameObject.Find("Player").transform;
     }
 
-    void Start() 
+    void Start()
     {
         currentAttack1Timer = attack1Timer;
         currentAttack2Timer = attack2Timer;
@@ -45,11 +45,11 @@ public class EnemyBearAttacks : MonoBehaviour
     }
 
 
-    void FixedUpdate() 
+    void FixedUpdate()
     {
         CheckTimers();
 
-        if(canRangeAttack)
+        if (canRangeAttack)
         {
             Attack2();
         }
@@ -57,7 +57,7 @@ public class EnemyBearAttacks : MonoBehaviour
 
     private void CheckForDistance()
     {
-        if(Vector3.Distance(player.position, transform.position) > rangeAttackDistance)
+        if (Vector3.Distance(player.position, transform.position) > rangeAttackDistance)
         {
             canRangeAttack = true;
         }
@@ -67,7 +67,7 @@ public class EnemyBearAttacks : MonoBehaviour
 
     public void Attack()
     {
-        if(canAttack1)
+        if (canAttack1)
         {
             CameraShake.Instance.ShakeCamera(cameraShakeIntensityHitAttack, cameraShakeDurationHitAttack);
             anim.SetTrigger("Attack");
@@ -76,8 +76,8 @@ public class EnemyBearAttacks : MonoBehaviour
     }
 
     public void Attack2()
-    {   
-        if(canAttack2)
+    {
+        if (canAttack2)
         {
             SetMovementSpeedToZero();
             anim.SetTrigger("Attack2");
@@ -87,9 +87,9 @@ public class EnemyBearAttacks : MonoBehaviour
 
     private void CheckTimers()
     {
-        if(!canAttack1)
+        if (!canAttack1)
         {
-            if(currentAttack1Timer > 0)
+            if (currentAttack1Timer > 0)
             {
                 currentAttack1Timer -= Time.deltaTime;
             }
@@ -98,13 +98,13 @@ public class EnemyBearAttacks : MonoBehaviour
                 currentAttack1Timer = attack1Timer;
                 canAttack1 = true;
             }
-            
-        }
-        
 
-        if(!canAttack2)
+        }
+
+
+        if (!canAttack2)
         {
-            if(currentAttack2Timer > 0)
+            if (currentAttack2Timer > 0)
             {
                 currentAttack2Timer -= Time.deltaTime;
             }
@@ -113,9 +113,9 @@ public class EnemyBearAttacks : MonoBehaviour
                 currentAttack2Timer = attack2Timer;
                 canAttack2 = true;
             }
-            
+
         }
-        
+
     }
 
     private void SetMovementSpeedToZero()

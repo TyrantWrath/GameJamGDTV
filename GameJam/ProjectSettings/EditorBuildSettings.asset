@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/BuildScenes/MainMenu.unity
     guid: 51f17ec2d91a2ef4b8d915ae6c4fcaa2
   - enabled: 1
+    path: Assets/Scenes/BuildScenes/UnlimitedHealth.unity
+    guid: 598da2194cb47a64a8ab21b48ac0a780
+  - enabled: 1
     path: Assets/Scenes/BuildScenes/Level1.unity
     guid: e090ecd73968e244abfb10841e269be8
   - enabled: 1
-    path: Assets/Scenes/BuildScenes/CreditScene.unity
+    path: Assets/Scenes/BuildScenes/GameOver.unity
     guid: d719395f341922a4aa5af9c35b3e58f5
   m_configObjects: {}

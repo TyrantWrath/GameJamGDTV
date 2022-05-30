@@ -12,11 +12,11 @@ public class MeleeAttack : MonoBehaviour
     [Space(25)]
     [Header("CameraShake")]
 
-    [Range(0f, 50f)]
-    [SerializeField] float cameraShakeIntensityHitAttack = 50f;
+    [Range(0f, 1f)]
+    [SerializeField] float cameraShakeIntensityHitAttack = 0.5f;
 
     [Range(0f, 2f)]
-    [SerializeField] float cameraShakeDurationHitAttack = 1f;
+    [SerializeField] float cameraShakeDurationHitAttack = 0.2f;
 
     Animator _animator;
     string enemyTag;

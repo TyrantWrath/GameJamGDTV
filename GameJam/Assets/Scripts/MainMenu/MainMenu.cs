@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     }
     public void LoadLevel1UnlimitedHealth()
     {
-        SceneManager.LoadScene("Level1UnlimitedHealth");
+        SceneManager.LoadScene("UnlimitedHealth");
 
     }
     public void LoadingCreditScene()

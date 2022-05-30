@@ -12,8 +12,8 @@ public class BearProjectileDamage : MonoBehaviour
     [Space(25)]
     [Header("CameraShake")]
 
-    [Range(0f, 50f)]
-    [SerializeField] float cameraShakeIntensityHitAttack = 1f;
+    [Range(0f, 1f)]
+    [SerializeField] float cameraShakeIntensityHitAttack = 0.5f;
 
     [Range(0f, 2f)]
     [SerializeField] float cameraShakeDurationHitAttack = 0.2f;
@@ -39,10 +39,10 @@ public class BearProjectileDamage : MonoBehaviour
             collision.GetComponentInParent<Health>().TakeDamage(damage);
             Destroy(gameObject);
         }
-        else if(collision.CompareTag(TagManager.ARROW_TAG))
+        else if (collision.CompareTag(TagManager.ARROW_TAG))
         {
             Destroy(gameObject);
         }
     }
-    
+
 }

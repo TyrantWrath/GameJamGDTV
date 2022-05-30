@@ -11,6 +11,7 @@ TagManager:
   - Real Enemy
   - Ghost Enemy
   - bullets
+  - Inst_Bear
   layers:
   - Default
   - TransparentFX
