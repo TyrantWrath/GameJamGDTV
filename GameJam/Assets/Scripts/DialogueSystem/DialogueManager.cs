@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     Animator animator;
     PlayerModeManager playerModeManager;
 
+    public bool isGameOver = false;
 
     void Start()
     {
@@ -66,5 +68,15 @@ public class DialogueManager : MonoBehaviour
         playerModeManager.EnablePlayers(true, playerModeManager.currentMap);
 
         animator.SetBool("IsOpen", false);
+
+        if(isGameOver)
+        {
+            SceneManager.LoadScene("CreditScene");
+        }
+    }
+
+    public void SetIsGameOver()
+    {
+        isGameOver = true;
     }
 }

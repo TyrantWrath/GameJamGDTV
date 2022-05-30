@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogueOnTriggerStart : MonoBehaviour
 {
     public bool isGhost = false;
+    public bool isEnd = false;
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
@@ -12,6 +13,10 @@ public class DialogueOnTriggerStart : MonoBehaviour
         {
             if(other.tag == "Ghost Player")
             {
+                if(isEnd)
+                {
+                    FindObjectOfType<DialogueManager>().SetIsGameOver();
+                }
                 GetComponent<DialogueTrigger>().TriggerDialogue();
             }
         }
